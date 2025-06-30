@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build:client && npm run build:server",
+    "build": "npm run build:pre && npm run build:client && npm run build:server && npm run build:post",
     "build:client": "vite build --emptyOutDir",
     "build:server": "tsc --project tsconfig.build.json",
+    "build:pre": "node bin/pre-build.js",
+    "build:post": "node bin/post-build.js",
     "dev": "nodemon --watch src --ignore src/app --ignore src/www --ignore src/lib/api/generated.ts src/index.ts",
     "format": "prettier --write ./src",
     "server": "node build/server/index.js",
