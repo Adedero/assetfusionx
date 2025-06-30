@@ -1,0 +1,55 @@
+{
+  "name": "assetfusionx",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "vite build --emptyOutDir",
+    "build:server": "tsc --project tsconfig.build.json",
+    "dev": "nodemon --watch src --ignore src/app --ignore src/www --ignore src/lib/api/generated.ts src/index.ts",
+    "format": "prettier --write ./src",
+    "server": "node build/server/index.js",
+    "tailwind": "npx @tailwindcss/cli -i ./tailwind.css -o ./public/css/main.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@eslint/js": "^9.30.0",
+    "@iconify-json/lucide": "^1.2.53",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.0.7",
+    "@vitejs/plugin-vue": "^6.0.0",
+    "@vue/tsconfig": "^0.7.0",
+    "dotenv": "^17.0.0",
+    "eslint": "^9.30.0",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-vue": "^10.2.0",
+    "express": "^5.1.0",
+    "globals": "^16.2.0",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.6.2",
+    "prisma": "^6.10.1",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.35.0",
+    "unplugin-auto-import": "^19.3.0",
+    "unplugin-vue-components": "^28.7.0",
+    "vite": "^7.0.0",
+    "vue-tsc": "^2.2.10"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "@tailwindcss/vite": "^4.1.11",
+    "express-handlebars": "^8.0.3",
+    "helmet": "^8.1.0",
+    "pinia": "^3.0.3",
+    "sirv": "^3.0.1",
+    "tailwindcss": "^4.1.11",
+    "vue-router": "^4.5.1"
+  },
+  "imports": {
+    "#src/*": "./build/server/*.js"
+  }
+}

@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-default: oklch(0.623 0.214 259.815);
+  --color-primary-50: oklch(0.97 0.014 254.604);  
+  --color-primary-100: oklch(0.932 0.032 255.585);  
+  --color-primary-200: oklch(0.882 0.059 254.128);  
+  --color-primary-300: oklch(0.809 0.105 251.813);  
+  --color-primary-400: oklch(0.707 0.165 254.624);  
+  --color-primary-500: oklch(0.623 0.214 259.815);  
+  --color-primary-600: oklch(0.546 0.245 262.881);  
+  --color-primary-700: oklch(0.488 0.243 264.376);  
+  --color-primary-800: oklch(0.424 0.199 265.638);  
+  --color-primary-900: oklch(0.379 0.146 265.522);  
+  --color-primary-950: oklch(0.282 0.091 267.935);
+
+  --color-tertiary-default: oklch(0.715 0.143 215.221);  
+  --color-tertiary-50: oklch(0.984 0.019 200.873);  
+  --color-tertiary-100: oklch(0.956 0.045 203.388);  
+  --color-tertiary-200: oklch(0.917 0.08 205.041); 
+  --color-tertiary-300: oklch(0.865 0.127 207.078);  
+  --color-tertiary-400: oklch(0.789 0.154 211.53);  
+  --color-tertiary-500: oklch(0.715 0.143 215.221);  
+  --color-tertiary-600: oklch(0.609 0.126 221.723);  
+  --color-tertiary-700: oklch(0.52 0.105 223.128);  
+  --color-tertiary-800: oklch(0.45 0.085 224.283);  
+  --color-tertiary-900: oklch(0.398 0.07 227.392);  
+  --color-tertiary-950: oklch(0.302 0.056 229.695);
+}
+
+/* Components */
+.btn {
+  @apply cursor-pointer font-medium px-4 py-1.5 flex items-center gap-2 transition-colors;
+
+  &.primary {
+    @apply bg-primary-500 hover:bg-primary-600
+  }
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(135deg, #0a0e27 0%, #1e293b 100%);
+  color: #fff;
+}
+
+.main__header {
+  @apply bg-slate-800 backdrop-blur-none border border-transparent;
+
+  &.active {
+    @apply bg-slate-700/40 backdrop-blur-xl border border-slate-200/30;
+  }
+}
+
+
+.main__header-wrapper {
+  @apply gap-x-40;
+
+  &.active {
+    @apply gap-x-12;
+  }
+}
+
+/* Navigation Mega  */

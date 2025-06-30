@@ -1,0 +1,12 @@
+# IDE files
+.vscode
+
+# Dev only
+dev
+node_modules
+teslint.config.js
+
+# Build
+build
+dist
+output

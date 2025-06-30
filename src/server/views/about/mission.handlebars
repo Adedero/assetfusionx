@@ -1,0 +1,27 @@
+<main>
+  <div class="grid *:[grid-column:1/2] *:[grid-row:1/2]">
+    <div class="flex flex-col items-center justify-center z-10">
+      <div class="max-w-[32rem] text-center p-4 bg-slate-700/30 border border-white/30 backdrop-blur-[5px] rounded-xl">
+        <h1 class="text-6xl font-medium">Mission, Vision & Values</h1>
+
+        <div class="mt-5">
+          <p>
+            At {{ app.name }}, we exist to democratize wealth building and make sophisticated investment strategies accessible to everyone, regardless of their financial background or expertise level.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="h-96">
+      <img src="/img/pages/about/mission.jpg" class="h-full w-full object-cover brightness-50" />
+    </div>
+  </div>
+
+  <div>
+    {{{ data }}}
+  </div>
+
+  <div>
+    {{> main/cta-banner-alt}}
+  </div>
+</main>

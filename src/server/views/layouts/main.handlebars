@@ -1,0 +1,31 @@
+<html>
+  <head lang="en">
+    {{!-- Meta tags --}}
+    <meta charset="utf-8" />
+    <meta name="description" content="Asset Fusion X - Your Asset Management Solution" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href="/css/main.css" rel="stylesheet">
+
+    {{!-- Google Fonts --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+    {{!-- Iconify Icons --}}
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+
+    <title>Asset Fusion X</title>
+  </head>
+  <body>
+    <header class="sticky top-0 z-50">
+      {{> main/header}}
+    </header>
+
+    {{{body}}}
+
+    <footer>
+      {{> main/footer}}
+    </footer>
+    <script src="/js/main.js" type="module"></script>
+  </body>
+</html>
