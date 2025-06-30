@@ -7,6 +7,6 @@ node_modules
 teslint.config.js
 
 # Build
-build
+#build
 dist
 output
