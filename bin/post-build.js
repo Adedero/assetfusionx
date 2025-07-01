@@ -9,7 +9,7 @@ function main() {
 
 function copyHandlebarViews() {
   const oldViewsPath = path.resolve("src/server/views");
-  const newViewsPath = path.resolve("build/server/views");
+  const newViewsPath = path.resolve("build/views");
 
   try {
     fs.cpSync(oldViewsPath, newViewsPath, { recursive: true });

@@ -6,38 +6,12 @@ import path from "node:path";
 import fs from "node:fs"
 import { pathToFileURL } from "url";
 import JSONToHTML from "#src/server/utils/helpers/json-to-html"; 
+import { z } from "zod";
+import logger from "../utils/logger";
+import env from "../utils/env";
 
 const fileCache = new Map<string, boolean>();
 const moduleCache = new Map<string, unknown>();
-
-function isDev() {
-  return process.env.NODE_ENV !== "production";
-}
-
-function fileExistsCached(filePath: string): boolean {
-  if (isDev()) return fs.existsSync(filePath);
-  if (fileCache.has(filePath)) return fileCache.get(filePath)!;
-  const exists = fs.existsSync(filePath);
-  fileCache.set(filePath, exists);
-  return exists;
-}
-
-async function importCachedModule(filePath: string) {
-  if (!isDev() && moduleCache.has(filePath)) {
-    return moduleCache.get(filePath);
-  }
-
-  const fileURL = pathToFileURL(filePath).href;
-  const module = await import(fileURL);
-  const rawData = module.default || module;
-
-  if (!isDev()) {
-    moduleCache.set(filePath, rawData);
-  }
-
-  return rawData;
-}
-
 
 export default function mainRouter() {
   const router = Router();
@@ -50,13 +24,42 @@ export default function mainRouter() {
     });
   });
 
+  //Logging
+  router.post("/logger", (req, res) => {
+    const Schema = z.object({
+      level: z.enum(["debug", "error", "info", "warn"]),
+      message: z.string().trim().nonempty(),
+      error: z.any()
+    });
+
+    const { data, success, error } = Schema.safeParse(req.body);
+    if (!success) {
+      res.status(400).json({
+        success: false,
+        message: error.errors[0].message
+      });
+      return;
+    }
+
+    if (data.level === "error") {
+      logger[data.level](data.message, data.error);
+    } else {
+      logger[data.level](data.message);
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Message logged."
+    });
+  });
+
   //other routes
   router.get("/{*all}", async (req, res, next) => {
     const route = req.path.replace(/^\/+/, "");
     if (!route) return next();
 
-    const basePath = process.env.NODE_ENV === "production" ? "build" : "src";
-    const viewPath = path.resolve(`${basePath}/server/views/${route}.handlebars`);
+    const basePath = isDev() ? "src/server" : "build"
+    const viewPath = path.resolve(`${basePath}/views/${route}.handlebars`);
     const dataPath = path.resolve(`${basePath}/content/pages/${route}.${isDev() ? "ts" : "js"}`);
 
     if (!fileExistsCached(viewPath)) {
@@ -82,3 +85,50 @@ export default function mainRouter() {
 
   return router;
 }
+
+
+function isDev() {
+  return env.get("NODE_ENV") !== "production";
+}
+
+function fileExistsCached(filePath: string): boolean {
+  if (fileCache.has(filePath)) return fileCache.get(filePath)!;
+  const exists = fs.existsSync(filePath);
+  fileCache.set(filePath, exists);
+  return exists;
+}
+
+export async function importCachedModule(filePath: string) {
+  const absPath = path.resolve(filePath);
+
+  if (!isDev() && moduleCache.has(absPath)) {
+    return moduleCache.get(absPath);
+  }
+
+  // Make sure file exists
+  try {
+    fs.accessSync(absPath);
+  } catch {
+    throw new Error(`Module file not found: ${absPath}`);
+  }
+
+  let rawData;
+
+  if (isDev()) {
+    // In dev: use dynamic ESM import
+    const module = await import(pathToFileURL(absPath).href);
+    rawData = module.default || module;
+  } else {
+    // In prod: use CommonJS require (works with compiled .js)
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const module = require(absPath);
+    rawData = module.default || module;
+  }
+
+  if (!isDev()) {
+    moduleCache.set(absPath, rawData);
+  }
+
+  return rawData;
+}
+

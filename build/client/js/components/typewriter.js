@@ -53,19 +53,18 @@ export default class Typewriter {
     // Method 1: Check for JSON array in data-text
     if (el.dataset.text) {
       try {
+        if (el.dataset.text.includes('|')) {
+          return el.dataset.text.split('|').map(t => t.trim());
+        }
+
         const parsed = JSON.parse(el.dataset.text);
         if (Array.isArray(parsed)) {
           return parsed;
         }
-        // If it's not JSON, treat as delimiter-separated string
-        if (el.dataset.text.includes('|')) {
-          return el.dataset.text.split('|').map(t => t.trim());
-        }
-        // Single string
+
         return [el.dataset.text];
       } catch (e) {
         console.error('TypewriterError: ', e);
-        // If JSON parsing fails, check for delimiter
         if (el.dataset.text.includes('|')) {
           return el.dataset.text.split('|').map(t => t.trim());
         }

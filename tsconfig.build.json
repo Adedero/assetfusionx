@@ -3,6 +3,6 @@
   "exclude": ["./src/app"],
   "compilerOptions": {
     "noEmit": false,
-    "outDir": "./build/server"
+    "outDir": "./build"
   }
 }

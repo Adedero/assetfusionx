@@ -37,6 +37,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = mainRouter;
+exports.importCachedModule = importCachedModule;
 const express_1 = require("express");
 const home_1 = __importDefault(require("#src/content/pages/home"));
 const app_1 = __importDefault(require("#src/content/app"));
@@ -45,32 +46,11 @@ const node_path_1 = __importDefault(require("node:path"));
 const node_fs_1 = __importDefault(require("node:fs"));
 const url_1 = require("url");
 const json_to_html_1 = __importDefault(require("#src/server/utils/helpers/json-to-html"));
+const zod_1 = require("zod");
+const logger_1 = __importDefault(require("../utils/logger"));
+const env_1 = __importDefault(require("../utils/env"));
 const fileCache = new Map();
 const moduleCache = new Map();
-function isDev() {
-    return process.env.NODE_ENV !== "production";
-}
-function fileExistsCached(filePath) {
-    if (isDev())
-        return node_fs_1.default.existsSync(filePath);
-    if (fileCache.has(filePath))
-        return fileCache.get(filePath);
-    const exists = node_fs_1.default.existsSync(filePath);
-    fileCache.set(filePath, exists);
-    return exists;
-}
-async function importCachedModule(filePath) {
-    if (!isDev() && moduleCache.has(filePath)) {
-        return moduleCache.get(filePath);
-    }
-    const fileURL = (0, url_1.pathToFileURL)(filePath).href;
-    const module = await Promise.resolve(`${fileURL}`).then(s => __importStar(require(s)));
-    const rawData = module.default || module;
-    if (!isDev()) {
-        moduleCache.set(filePath, rawData);
-    }
-    return rawData;
-}
 function mainRouter() {
     const router = (0, express_1.Router)();
     router.get("/", (req, res) => {
@@ -80,13 +60,39 @@ function mainRouter() {
             investmentOptions: investment_options_1.default
         });
     });
+    //Logging
+    router.post("/logger", (req, res) => {
+        const Schema = zod_1.z.object({
+            level: zod_1.z.enum(["debug", "error", "info", "warn"]),
+            message: zod_1.z.string().trim().nonempty(),
+            error: zod_1.z.any()
+        });
+        const { data, success, error } = Schema.safeParse(req.body);
+        if (!success) {
+            res.status(400).json({
+                success: false,
+                message: error.errors[0].message
+            });
+            return;
+        }
+        if (data.level === "error") {
+            logger_1.default[data.level](data.message, data.error);
+        }
+        else {
+            logger_1.default[data.level](data.message);
+        }
+        res.status(200).json({
+            success: true,
+            message: "Message logged."
+        });
+    });
     //other routes
     router.get("/{*all}", async (req, res, next) => {
         const route = req.path.replace(/^\/+/, "");
         if (!route)
             return next();
-        const basePath = process.env.NODE_ENV === "production" ? "build" : "src";
-        const viewPath = node_path_1.default.resolve(`${basePath}/server/views/${route}.handlebars`);
+        const basePath = isDev() ? "src/server" : "build";
+        const viewPath = node_path_1.default.resolve(`${basePath}/views/${route}.handlebars`);
         const dataPath = node_path_1.default.resolve(`${basePath}/content/pages/${route}.${isDev() ? "ts" : "js"}`);
         if (!fileExistsCached(viewPath)) {
             return next();
@@ -107,4 +113,43 @@ function mainRouter() {
         });
     });
     return router;
+}
+function isDev() {
+    return env_1.default.get("NODE_ENV") !== "production";
+}
+function fileExistsCached(filePath) {
+    if (fileCache.has(filePath))
+        return fileCache.get(filePath);
+    const exists = node_fs_1.default.existsSync(filePath);
+    fileCache.set(filePath, exists);
+    return exists;
+}
+async function importCachedModule(filePath) {
+    const absPath = node_path_1.default.resolve(filePath);
+    if (!isDev() && moduleCache.has(absPath)) {
+        return moduleCache.get(absPath);
+    }
+    // Make sure file exists
+    try {
+        node_fs_1.default.accessSync(absPath);
+    }
+    catch {
+        throw new Error(`Module file not found: ${absPath}`);
+    }
+    let rawData;
+    if (isDev()) {
+        // In dev: use dynamic ESM import
+        const module = await Promise.resolve(`${(0, url_1.pathToFileURL)(absPath).href}`).then(s => __importStar(require(s)));
+        rawData = module.default || module;
+    }
+    else {
+        // In prod: use CommonJS require (works with compiled .js)
+        // eslint-disable-next-line @typescript-eslint/no-require-imports
+        const module = require(absPath);
+        rawData = module.default || module;
+    }
+    if (!isDev()) {
+        moduleCache.set(absPath, rawData);
+    }
+    return rawData;
 }

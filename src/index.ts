@@ -5,12 +5,13 @@ import helmet from "helmet";
 import sirv from "sirv";
 import { engine } from "express-handlebars";
 import mainRouter from "./server/routes/main.routes";
+import env from "./server/utils/env";
 
 const app: Express = express();
 const server = http.createServer(app);
-const isProduction = process.env.NODE_ENV === "production";
+const IS_PRODUCTION = env.get("NODE_ENV") === "production";
 //const base = process.env.BASE || "/";
-const port = process.env.PORT || 54321;
+const PORT = env.get("PORT");
 
 async function main() {
   app.use(express.json({ limit: "10mb" }));
@@ -22,7 +23,7 @@ async function main() {
 
   app.use(mainRouter());
 
-  if (!isProduction) {
+  if (!IS_PRODUCTION) {
     /* const { createServer } = await import("vite");
 
     const viteServer = await createServer({
@@ -42,7 +43,7 @@ async function main() {
   app.get("/app/{*all}", (req, res) => {
     let HTML_PATH: string = "";
 
-    if (isProduction) {
+    if (IS_PRODUCTION) {
       HTML_PATH = "build/client/index.html";
     } else {
       HTML_PATH = "src/app/index.html";
@@ -54,8 +55,8 @@ async function main() {
   /**
    * SERVER EVENT LISTENERS
    */
-  server.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
+  server.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
   });
 
   server.on("error", (error) => {
