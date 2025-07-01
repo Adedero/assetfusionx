@@ -93,7 +93,7 @@ function mainRouter() {
             return next();
         const basePath = isDev() ? "src/server" : "build";
         const viewPath = node_path_1.default.resolve(`${basePath}/views/${route}.handlebars`);
-        const dataPath = node_path_1.default.resolve(`${basePath}/content/pages/${route}.${isDev() ? "ts" : "js"}`);
+        const dataPath = node_path_1.default.resolve(`${basePath.replace("/server", "")}/content/pages/${route}.${isDev() ? "ts" : "js"}`);
         if (!fileExistsCached(viewPath)) {
             return next();
         }
@@ -115,7 +115,8 @@ function mainRouter() {
     return router;
 }
 function isDev() {
-    return env_1.default.get("NODE_ENV") !== "production";
+    return (env_1.default.get("NODE_ENV") === "development" ||
+        env_1.default.get("NODE_ENV") !== "production");
 }
 function fileExistsCached(filePath) {
     if (fileCache.has(filePath))

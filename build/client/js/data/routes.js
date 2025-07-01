@@ -11,10 +11,6 @@ const routes = [
         to: "/about/mission"
       },
       {
-        label: "Leadership",
-        to: "/about/leadership"
-      },
-      {
         label: "Careers",
         to: "/about/careers"
       },

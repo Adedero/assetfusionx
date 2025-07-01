@@ -6,7 +6,6 @@ dev
 node_modules
 teslint.config.js
 
-# Build
-#build
-dist
-output
+# Environmental Variables
+.env
+.env.local

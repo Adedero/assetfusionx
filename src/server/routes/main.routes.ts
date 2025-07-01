@@ -60,7 +60,7 @@ export default function mainRouter() {
 
     const basePath = isDev() ? "src/server" : "build"
     const viewPath = path.resolve(`${basePath}/views/${route}.handlebars`);
-    const dataPath = path.resolve(`${basePath}/content/pages/${route}.${isDev() ? "ts" : "js"}`);
+    const dataPath = path.resolve(`${basePath.replace("/server", "")}/content/pages/${route}.${isDev() ? "ts" : "js"}`);
 
     if (!fileExistsCached(viewPath)) {
       return next();
@@ -88,7 +88,10 @@ export default function mainRouter() {
 
 
 function isDev() {
-  return env.get("NODE_ENV") !== "production";
+  return (
+    env.get("NODE_ENV") === "development" || 
+    env.get("NODE_ENV") !== "production"
+  )
 }
 
 function fileExistsCached(filePath: string): boolean {

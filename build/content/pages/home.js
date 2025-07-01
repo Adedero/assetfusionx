@@ -7,7 +7,7 @@ const app_1 = __importDefault(require("../app"));
 exports.default = {
     hero: {
         tagline: "Your best partner for wealth growth",
-        title: "Grow your wealth effortlessly with expert-managed investments.",
+        title: "Grow your wealth with expert-managed investments.",
         description: `${app_1.default.name} lets you pick from curated investment opportunities. You choose where to put your money — we do the work, and you enjoy the returns.`,
     },
     partners: [

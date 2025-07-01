@@ -8,8 +8,9 @@
     "build:server": "tsc --project tsconfig.build.json",
     "build:pre": "node bin/pre-build.js",
     "build:post": "node bin/post-build.js",
-    "dev": "nodemon --watch src --ignore src/app --ignore src/www --ignore src/lib/api/generated.ts src/index.ts",
+    "dev": "concurrently 'bun run server:dev' 'bun run tailwind",
     "format": "prettier --write ./src",
+    "server:dev": "nodemon --watch src --ignore src/app --ignore src/lib/api/generated.ts src/index.ts",
     "server": "node build/index.js",
     "tailwind": "npx @tailwindcss/cli -i ./tailwind.css -o ./public/css/main.css --watch"
   },
