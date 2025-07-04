@@ -4,7 +4,12 @@ import { JSONTree } from "#src/server/utils/helpers/json-to-html";
 const pageData: JSONTree[] = [
   {
     node: { type: "element", value: "div" },
-    attr: [{ name: "class", value: "space-y-10 max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8" }],
+    attr: [
+      {
+        name: "class",
+        value: "space-y-10 max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8"
+      }
+    ],
     children: [
       // Origin Story
       {
@@ -12,7 +17,10 @@ const pageData: JSONTree[] = [
         attr: [{ name: "class", value: "mt-4 text-lg" }],
         children: [
           {
-            node: { type: "text", value: `${app.name} was born out of a vision to simplify the world of investing and make smart asset management accessible to everyone, regardless of financial background or expertise.` }
+            node: {
+              type: "text",
+              value: `${app.name} was born out of a vision to simplify the world of investing and make smart asset management accessible to everyone, regardless of financial background or expertise.`
+            }
           }
         ]
       },
@@ -32,7 +40,9 @@ const pageData: JSONTree[] = [
         children: [
           {
             node: { type: "element", value: "h2" },
-            attr: [{ name: "class", value: "text-2xl font-bold text-tertiary-500" }],
+            attr: [
+              { name: "class", value: "text-2xl font-bold text-tertiary-500" }
+            ],
             children: [
               { node: { type: "text", value: "A Platform Built on Trust" } }
             ]
@@ -54,7 +64,13 @@ const pageData: JSONTree[] = [
       // Mission & Values
       {
         node: { type: "element", value: "div" },
-        attr: [{ name: "class", value: "bg-gradient-to-b from-primary-500/10 border border-white/10 rounded-lg p-8" }],
+        attr: [
+          {
+            name: "class",
+            value:
+              "bg-gradient-to-b from-primary-500/10 border border-white/10 rounded-lg p-8"
+          }
+        ],
         children: [
           {
             node: { type: "element", value: "h2" },
@@ -73,7 +89,12 @@ const pageData: JSONTree[] = [
                 children: [
                   {
                     node: { type: "element", value: "h3" },
-                    attr: [{ name: "class", value: "text-lg font-semibold text-tertiary-500" }],
+                    attr: [
+                      {
+                        name: "class",
+                        value: "text-lg font-semibold text-tertiary-500"
+                      }
+                    ],
                     children: [
                       { node: { type: "text", value: "Transparency First" } }
                     ]
@@ -82,7 +103,13 @@ const pageData: JSONTree[] = [
                     node: { type: "element", value: "p" },
                     attr: [{ name: "class", value: "text-slate-300" }],
                     children: [
-                      { node: { type: "text", value: "Every decision, every trade, every fee is clearly communicated. No hidden costs, no surprise charges, no unclear performance metrics." } }
+                      {
+                        node: {
+                          type: "text",
+                          value:
+                            "Every decision, every trade, every fee is clearly communicated. No hidden costs, no surprise charges, no unclear performance metrics."
+                        }
+                      }
                     ]
                   }
                 ]
@@ -93,16 +120,32 @@ const pageData: JSONTree[] = [
                 children: [
                   {
                     node: { type: "element", value: "h3" },
-                    attr: [{ name: "class", value: "text-lg font-semibold text-tertiary-500" }],
+                    attr: [
+                      {
+                        name: "class",
+                        value: "text-lg font-semibold text-tertiary-500"
+                      }
+                    ],
                     children: [
-                      { node: { type: "text", value: "Innovation Through Technology" } }
+                      {
+                        node: {
+                          type: "text",
+                          value: "Innovation Through Technology"
+                        }
+                      }
                     ]
                   },
                   {
                     node: { type: "element", value: "p" },
                     attr: [{ name: "class", value: "text-slate-300" }],
                     children: [
-                      { node: { type: "text", value: "Leveraging cutting-edge AI and machine learning to identify opportunities that traditional analysis might miss." } }
+                      {
+                        node: {
+                          type: "text",
+                          value:
+                            "Leveraging cutting-edge AI and machine learning to identify opportunities that traditional analysis might miss."
+                        }
+                      }
                     ]
                   }
                 ]
@@ -119,9 +162,13 @@ const pageData: JSONTree[] = [
         children: [
           {
             node: { type: "element", value: "h2" },
-            attr: [{ name: "class", value: "text-2xl text-tertiary-500 font-bold" }],
+            attr: [
+              { name: "class", value: "text-2xl text-tertiary-500 font-bold" }
+            ],
             children: [
-              { node: { type: "text", value: "From Startup to Scalable Impact" } }
+              {
+                node: { type: "text", value: "From Startup to Scalable Impact" }
+              }
             ]
           },
           {
@@ -130,7 +177,8 @@ const pageData: JSONTree[] = [
               {
                 node: {
                   type: "text",
-                  value: "We started small — a passionate group of investment analysts, developers, and financial advisors frustrated with outdated, clunky platforms. Our first version was simple, but the mission was clear: remove friction, unlock performance. Today, we power hundreds of investment decisions daily and support a growing global user base."
+                  value:
+                    "We started small — a passionate group of investment analysts, developers, and financial advisors frustrated with outdated, clunky platforms. Our first version was simple, but the mission was clear: remove friction, unlock performance. Today, we power hundreds of investment decisions daily and support a growing global user base."
                 }
               }
             ]
@@ -152,34 +200,46 @@ const pageData: JSONTree[] = [
       // Statistics Section
       {
         node: { type: "element", value: "div" },
-        attr: [{ name: "class", value: "bg-slate-800 rounded-lg p-8 text-white" }],
+        attr: [
+          { name: "class", value: "bg-slate-800 rounded-lg p-8 text-white" }
+        ],
         children: [
           {
             node: { type: "element", value: "h2" },
-            attr: [{ name: "class", value: "text-2xl font-bold text-center mb-8" }],
-            children: [
-              { node: { type: "text", value: "Our Track Record" } }
-            ]
+            attr: [
+              { name: "class", value: "text-2xl font-bold text-center mb-8" }
+            ],
+            children: [{ node: { type: "text", value: "Our Track Record" } }]
           },
           {
             node: { type: "element", value: "div" },
-            attr: [{ name: "class", value: "grid grid-cols-2 md:grid-cols-4 gap-6 text-center" }],
+            attr: [
+              {
+                name: "class",
+                value: "grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
+              }
+            ],
             children: [
               {
                 node: { type: "element", value: "div" },
                 children: [
                   {
                     node: { type: "element", value: "div" },
-                    attr: [{ name: "class", value: "text-3xl font-bold text-blue-400" }],
-                    children: [
-                      { node: { type: "text", value: "$50M+" } }
-                    ]
+                    attr: [
+                      {
+                        name: "class",
+                        value: "text-3xl font-bold text-blue-400"
+                      }
+                    ],
+                    children: [{ node: { type: "text", value: "$50M+" } }]
                   },
                   {
                     node: { type: "element", value: "div" },
                     attr: [{ name: "class", value: "text-sm text-slate-300" }],
                     children: [
-                      { node: { type: "text", value: "Assets Under Management" } }
+                      {
+                        node: { type: "text", value: "Assets Under Management" }
+                      }
                     ]
                   }
                 ]
@@ -189,10 +249,13 @@ const pageData: JSONTree[] = [
                 children: [
                   {
                     node: { type: "element", value: "div" },
-                    attr: [{ name: "class", value: "text-3xl font-bold text-green-400" }],
-                    children: [
-                      { node: { type: "text", value: "15.2%" } }
-                    ]
+                    attr: [
+                      {
+                        name: "class",
+                        value: "text-3xl font-bold text-green-400"
+                      }
+                    ],
+                    children: [{ node: { type: "text", value: "15.2%" } }]
                   },
                   {
                     node: { type: "element", value: "div" },
@@ -208,10 +271,13 @@ const pageData: JSONTree[] = [
                 children: [
                   {
                     node: { type: "element", value: "div" },
-                    attr: [{ name: "class", value: "text-3xl font-bold text-purple-400" }],
-                    children: [
-                      { node: { type: "text", value: "2,500+" } }
-                    ]
+                    attr: [
+                      {
+                        name: "class",
+                        value: "text-3xl font-bold text-purple-400"
+                      }
+                    ],
+                    children: [{ node: { type: "text", value: "2,500+" } }]
                   },
                   {
                     node: { type: "element", value: "div" },
@@ -227,10 +293,13 @@ const pageData: JSONTree[] = [
                 children: [
                   {
                     node: { type: "element", value: "div" },
-                    attr: [{ name: "class", value: "text-3xl font-bold text-yellow-400" }],
-                    children: [
-                      { node: { type: "text", value: "24/7" } }
-                    ]
+                    attr: [
+                      {
+                        name: "class",
+                        value: "text-3xl font-bold text-yellow-400"
+                      }
+                    ],
+                    children: [{ node: { type: "text", value: "24/7" } }]
                   },
                   {
                     node: { type: "element", value: "div" },
@@ -253,9 +322,13 @@ const pageData: JSONTree[] = [
         children: [
           {
             node: { type: "element", value: "h2" },
-            attr: [{ name: "class", value: "text-2xl text-tertiary-500 font-bold" }],
+            attr: [
+              { name: "class", value: "text-2xl text-tertiary-500 font-bold" }
+            ],
             children: [
-              { node: { type: "text", value: "Powered by Advanced Technology" } }
+              {
+                node: { type: "text", value: "Powered by Advanced Technology" }
+              }
             ]
           },
           {
@@ -276,11 +349,21 @@ const pageData: JSONTree[] = [
             children: [
               {
                 node: { type: "element", value: "div" },
-                attr: [{ name: "class", value: "bg-white p-6 rounded-lg shadow-md border" }],
+                attr: [
+                  {
+                    name: "class",
+                    value: "bg-white p-6 rounded-lg shadow-md border"
+                  }
+                ],
                 children: [
                   {
                     node: { type: "element", value: "h3" },
-                    attr: [{ name: "class", value: "font-semibold text-slate-800 mb-3" }],
+                    attr: [
+                      {
+                        name: "class",
+                        value: "font-semibold text-slate-800 mb-3"
+                      }
+                    ],
                     children: [
                       { node: { type: "text", value: "AI-Driven Analysis" } }
                     ]
@@ -289,18 +372,34 @@ const pageData: JSONTree[] = [
                     node: { type: "element", value: "p" },
                     attr: [{ name: "class", value: "text-sm text-slate-600" }],
                     children: [
-                      { node: { type: "text", value: "Machine learning models process thousands of data points to identify emerging market trends and investment opportunities." } }
+                      {
+                        node: {
+                          type: "text",
+                          value:
+                            "Machine learning models process thousands of data points to identify emerging market trends and investment opportunities."
+                        }
+                      }
                     ]
                   }
                 ]
               },
               {
                 node: { type: "element", value: "div" },
-                attr: [{ name: "class", value: "bg-white p-6 rounded-lg shadow-md border" }],
+                attr: [
+                  {
+                    name: "class",
+                    value: "bg-white p-6 rounded-lg shadow-md border"
+                  }
+                ],
                 children: [
                   {
                     node: { type: "element", value: "h3" },
-                    attr: [{ name: "class", value: "font-semibold text-slate-800 mb-3" }],
+                    attr: [
+                      {
+                        name: "class",
+                        value: "font-semibold text-slate-800 mb-3"
+                      }
+                    ],
                     children: [
                       { node: { type: "text", value: "Risk Management" } }
                     ]
@@ -309,18 +408,34 @@ const pageData: JSONTree[] = [
                     node: { type: "element", value: "p" },
                     attr: [{ name: "class", value: "text-sm text-slate-600" }],
                     children: [
-                      { node: { type: "text", value: "Dynamic portfolio rebalancing and stop-loss mechanisms protect your capital during market volatility." } }
+                      {
+                        node: {
+                          type: "text",
+                          value:
+                            "Dynamic portfolio rebalancing and stop-loss mechanisms protect your capital during market volatility."
+                        }
+                      }
                     ]
                   }
                 ]
               },
               {
                 node: { type: "element", value: "div" },
-                attr: [{ name: "class", value: "bg-white p-6 rounded-lg shadow-md border" }],
+                attr: [
+                  {
+                    name: "class",
+                    value: "bg-white p-6 rounded-lg shadow-md border"
+                  }
+                ],
                 children: [
                   {
                     node: { type: "element", value: "h3" },
-                    attr: [{ name: "class", value: "font-semibold text-slate-800 mb-3" }],
+                    attr: [
+                      {
+                        name: "class",
+                        value: "font-semibold text-slate-800 mb-3"
+                      }
+                    ],
                     children: [
                       { node: { type: "text", value: "Real-Time Execution" } }
                     ]
@@ -329,7 +444,13 @@ const pageData: JSONTree[] = [
                     node: { type: "element", value: "p" },
                     attr: [{ name: "class", value: "text-sm text-slate-600" }],
                     children: [
-                      { node: { type: "text", value: "Lightning-fast trade execution ensures you never miss market opportunities or face unnecessary delays." } }
+                      {
+                        node: {
+                          type: "text",
+                          value:
+                            "Lightning-fast trade execution ensures you never miss market opportunities or face unnecessary delays."
+                        }
+                      }
                     ]
                   }
                 ]
@@ -346,12 +467,18 @@ const pageData: JSONTree[] = [
         children: [
           {
             node: { type: "element", value: "h2" },
-            attr: [{ name: "class", value: "flex items-center gap-1 text-xl font-semibold text-white" }],
+            attr: [
+              {
+                name: "class",
+                value:
+                  "flex items-center gap-1 text-xl font-semibold text-white"
+              }
+            ],
             children: [
-              { 
-                node: { 
-                  type: "element", 
-                  value: "iconify-icon" 
+              {
+                node: {
+                  type: "element",
+                  value: "iconify-icon"
                 },
                 attr: [
                   { name: "icon", value: "lucide:badge-check" },
@@ -363,31 +490,84 @@ const pageData: JSONTree[] = [
           },
           {
             node: { type: "element", value: "ul" },
-            attr: [{ name: "class", value: "list-disc list-inside mt-4 space-y-2 text-slate-300" }],
+            attr: [
+              {
+                name: "class",
+                value: "list-disc list-inside mt-4 space-y-2 text-slate-300"
+              }
+            ],
             children: [
               {
                 node: { type: "element", value: "li" },
-                children: [{ node: { type: "text", value: "Fully managed investments tailored to your risk tolerance and goals" } }]
+                children: [
+                  {
+                    node: {
+                      type: "text",
+                      value:
+                        "Fully managed investments tailored to your risk tolerance and goals"
+                    }
+                  }
+                ]
               },
               {
                 node: { type: "element", value: "li" },
-                children: [{ node: { type: "text", value: "Transparent performance tracking and regular profit payouts" } }]
+                children: [
+                  {
+                    node: {
+                      type: "text",
+                      value:
+                        "Transparent performance tracking and regular profit payouts"
+                    }
+                  }
+                ]
               },
               {
                 node: { type: "element", value: "li" },
-                children: [{ node: { type: "text", value: "Global asset diversification without the complexity" } }]
+                children: [
+                  {
+                    node: {
+                      type: "text",
+                      value:
+                        "Global asset diversification without the complexity"
+                    }
+                  }
+                ]
               },
               {
                 node: { type: "element", value: "li" },
-                children: [{ node: { type: "text", value: "Built-in risk protection and smart capital deployment" } }]
+                children: [
+                  {
+                    node: {
+                      type: "text",
+                      value:
+                        "Built-in risk protection and smart capital deployment"
+                    }
+                  }
+                ]
               },
               {
                 node: { type: "element", value: "li" },
-                children: [{ node: { type: "text", value: "SEC-compliant operations with full regulatory oversight" } }]
+                children: [
+                  {
+                    node: {
+                      type: "text",
+                      value:
+                        "SEC-compliant operations with full regulatory oversight"
+                    }
+                  }
+                ]
               },
               {
                 node: { type: "element", value: "li" },
-                children: [{ node: { type: "text", value: "24/7 customer support and dedicated account management" } }]
+                children: [
+                  {
+                    node: {
+                      type: "text",
+                      value:
+                        "24/7 customer support and dedicated account management"
+                    }
+                  }
+                ]
               }
             ]
           }
@@ -407,11 +587,18 @@ const pageData: JSONTree[] = [
       // Security & Compliance
       {
         node: { type: "element", value: "div" },
-        attr: [{ name: "class", value: "border-t border-t-white/20 pt-8 mt-8" }],
+        attr: [
+          { name: "class", value: "border-t border-t-white/20 pt-8 mt-8" }
+        ],
         children: [
           {
             node: { type: "element", value: "h2" },
-            attr: [{ name: "class", value: "text-xl font-bold text-tertiary-500 mb-4" }],
+            attr: [
+              {
+                name: "class",
+                value: "text-xl font-bold text-tertiary-500 mb-4"
+              }
+            ],
             children: [
               { node: { type: "text", value: "Security & Compliance" } }
             ]
@@ -430,7 +617,12 @@ const pageData: JSONTree[] = [
           },
           {
             node: { type: "element", value: "div" },
-            attr: [{ name: "class", value: "flex flex-wrap gap-4 text-sm text-slate-500" }],
+            attr: [
+              {
+                name: "class",
+                value: "flex flex-wrap gap-4 text-sm text-slate-500"
+              }
+            ],
             children: [
               {
                 node: { type: "element", value: "span" },

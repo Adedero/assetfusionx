@@ -11,6 +11,8 @@ export interface SetEnvOptions {
   env?: string;
 }
 
+type NodeEnv = "dev" | "development" | "test" | "prod" | "producion";
+
 export class Env<T extends ZodTypeAny = ZodTypeAny> {
   private schema?: T;
   private parsed?: z.infer<T>;
@@ -26,13 +28,28 @@ export class Env<T extends ZodTypeAny = ZodTypeAny> {
     if (this.schema) {
       const result = this.schema.safeParse(process.env);
       if (!result.success) {
-        throw new Error(`Invalid environment variables:\n${this.formatZodError(result.error)}`);
+        throw new Error(
+          `Invalid environment variables:\n${this.formatZodError(result.error)}`
+        );
       }
       this.parsed = result.data;
 
       if (this.isDev && this.createExampleEnv) {
         this.generateExampleEnv();
       }
+    }
+  }
+
+  isEnv(value: NodeEnv) {
+    if (value === "dev" || value === "development") {
+      return (
+        !this.getSafe("NODE_ENV") ||
+        this.getSafe("NODE_ENV") === value ||
+        this.getSafe("NODE_ENV") !== "production" ||
+        this.getSafe("NODE_ENV") !== "test"
+      );
+    } else {
+      return this.getSafe("NODE_ENV") === value;
     }
   }
 
@@ -80,12 +97,12 @@ export class Env<T extends ZodTypeAny = ZodTypeAny> {
     }
 
     const lines = content.split("\n");
-    const updated = lines.map(line => {
+    const updated = lines.map((line) => {
       if (line.startsWith(`${key}=`)) return `${key}=${value}`;
       return line;
     });
 
-    if (!lines.some(line => line.startsWith(`${key}=`))) {
+    if (!lines.some((line) => line.startsWith(`${key}=`))) {
       updated.push(`${key}=${value}`);
     }
 
@@ -94,20 +111,19 @@ export class Env<T extends ZodTypeAny = ZodTypeAny> {
   }
 
   getAll(): z.infer<T> | Record<string, string> {
-  if (this.schema && this.parsed) {
-    return this.parsed;
-  }
-
-  const raw: Record<string, string> = {};
-  for (const [key, value] of Object.entries(process.env)) {
-    if (typeof value === "string") {
-      raw[key] = value;
+    if (this.schema && this.parsed) {
+      return this.parsed;
     }
+
+    const raw: Record<string, string> = {};
+    for (const [key, value] of Object.entries(process.env)) {
+      if (typeof value === "string") {
+        raw[key] = value;
+      }
+    }
+
+    return raw;
   }
-
-  return raw;
-}
-
 
   getSchema(): T | undefined {
     return this.schema;
@@ -115,8 +131,8 @@ export class Env<T extends ZodTypeAny = ZodTypeAny> {
 
   private formatZodError(error: ZodError): string {
     return error.errors
-      .map(err => `  - ${err.path.join('.')}: ${err.message}`)
-      .join('\n');
+      .map((err) => `  - ${err.path.join(".")}: ${err.message}`)
+      .join("\n");
   }
 
   private async generateExampleEnv() {
@@ -146,7 +162,6 @@ export class Env<T extends ZodTypeAny = ZodTypeAny> {
     }
   }
 }
-
 
 /* 
 create an Env class

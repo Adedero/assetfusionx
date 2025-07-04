@@ -3,22 +3,21 @@ import homePageData from "#src/content/pages/home";
 import app from "#src/content/app";
 import investmentOptions from "#src/content/investment-options";
 import path from "node:path";
-import fs from "node:fs"
-import { pathToFileURL } from "url";
-import JSONToHTML from "#src/server/utils/helpers/json-to-html"; 
+import JSONToHTML, { JSONTree } from "#src/server/utils/helpers/json-to-html";
 import { z } from "zod";
 import logger from "../utils/logger";
 import env from "../utils/env";
-
-const fileCache = new Map<string, boolean>();
-const moduleCache = new Map<string, unknown>();
+import RouteImportCache from "../utils/classes/route-import-cache";
+import CustomError from "../utils/classes/custom-error";
 
 export default function mainRouter() {
   const router = Router();
 
+  const cache = new RouteImportCache();
+
   router.get("/", (req, res) => {
-    res.render("home", { 
-      app, 
+    res.render("home", {
+      app,
       data: homePageData,
       investmentOptions
     });
@@ -56,22 +55,54 @@ export default function mainRouter() {
   //other routes
   router.get("/{*all}", async (req, res, next) => {
     const route = req.path.replace(/^\/+/, "");
+    if (!route || !route.startsWith("investments")) return next();
+
+    const basePath = env.isEnv("dev") ? "src/server" : "build";
+    const viewPath = path.resolve(`${basePath}/views/${route}.handlebars`);
+    const dataPath = path.resolve(
+      `${basePath.replace("/server", "")}/content/pages/${route}.${env.isEnv("dev") ? "ts" : "js"}`
+    );
+
+    if (!cache.fileExistsCached(viewPath)) {
+      return next();
+    }
+
+    let data;
+
+    if (cache.fileExistsCached(dataPath)) {
+      try {
+        data = await cache.importCachedModule(dataPath);
+      } catch (error) {
+        next(
+          new CustomError(`Failed to import page data for ${route}:`, error)
+        );
+      }
+    }
+
+    res.render(route, { app, data });
+  });
+
+  //other routes
+  router.get("/{*all}", async (req, res, next) => {
+    const route = req.path.replace(/^\/+/, "");
     if (!route) return next();
 
-    const basePath = isDev() ? "src/server" : "build"
+    const basePath = env.isEnv("dev") ? "src/server" : "build";
     const viewPath = path.resolve(`${basePath}/views/${route}.handlebars`);
-    const dataPath = path.resolve(`${basePath.replace("/server", "")}/content/pages/${route}.${isDev() ? "ts" : "js"}`);
+    const dataPath = path.resolve(
+      `${basePath.replace("/server", "")}/content/pages/${route}.${env.isEnv("dev") ? "ts" : "js"}`
+    );
 
-    if (!fileExistsCached(viewPath)) {
+    if (!cache.fileExistsCached(viewPath)) {
       return next();
     }
 
     let data: string | null = null;
 
-    if (fileExistsCached(dataPath)) {
+    if (cache.fileExistsCached(dataPath)) {
       try {
-        const rawData = await importCachedModule(dataPath);
-        data = JSONToHTML(rawData);
+        const rawData = await cache.importCachedModule(dataPath);
+        data = JSONToHTML(rawData as JSONTree[]);
       } catch (err) {
         console.error(`Failed to import page data for ${route}:`, err);
       }
@@ -79,59 +110,10 @@ export default function mainRouter() {
 
     res.render(route, {
       app,
+      partners: homePageData.partners,
       data
     });
   });
 
   return router;
 }
-
-
-function isDev() {
-  return (
-    env.get("NODE_ENV") === "development" || 
-    env.get("NODE_ENV") !== "production"
-  )
-}
-
-function fileExistsCached(filePath: string): boolean {
-  if (fileCache.has(filePath)) return fileCache.get(filePath)!;
-  const exists = fs.existsSync(filePath);
-  fileCache.set(filePath, exists);
-  return exists;
-}
-
-export async function importCachedModule(filePath: string) {
-  const absPath = path.resolve(filePath);
-
-  if (!isDev() && moduleCache.has(absPath)) {
-    return moduleCache.get(absPath);
-  }
-
-  // Make sure file exists
-  try {
-    fs.accessSync(absPath);
-  } catch {
-    throw new Error(`Module file not found: ${absPath}`);
-  }
-
-  let rawData;
-
-  if (isDev()) {
-    // In dev: use dynamic ESM import
-    const module = await import(pathToFileURL(absPath).href);
-    rawData = module.default || module;
-  } else {
-    // In prod: use CommonJS require (works with compiled .js)
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const module = require(absPath);
-    rawData = module.default || module;
-  }
-
-  if (!isDev()) {
-    moduleCache.set(absPath, rawData);
-  }
-
-  return rawData;
-}
-

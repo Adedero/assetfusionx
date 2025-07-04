@@ -2,16 +2,20 @@
   <div class="gap-5 col-span-3 overflow-y-hidden">
     <div class="grid grid-cols-2 items-center gap-2 w-full">
       {{#each investmentOptions}}
-        <div class="p-4 bg-slate-800/50 border border-slate-700 bg-gradient-t-b from-primary/50 rounded-xl">
+        <div
+          class="p-4 bg-slate-800/50 border border-slate-700 bg-gradient-t-b from-primary/50 rounded-xl"
+        >
           <header class="flex items-center gap-2">
-            <div class="w-8 h-8 border border-tertiary-500/50 bg-gradient-to-b from-primary-500/40 rounded-lg grid place-content-center">
-              <iconify-icon icon="{{ this.icon }}"></iconify-icon>
+            <div
+              class="w-8 h-8 border border-tertiary-500/50 bg-gradient-to-b from-primary-500/40 rounded-lg grid place-content-center"
+            >
+              <iconify-icon icon="{{this.icon}}"></iconify-icon>
             </div>
-            <p class="font-semibold">{{ this.name }}</p>
+            <p class="font-semibold">{{this.name}}</p>
           </header>
 
           <div class="mt-2 text-sm">
-            <p class="truncate">{{ this.description }}</p>
+            <p class="truncate">{{this.description}}</p>
           </div>
         </div>
       {{/each}}
@@ -20,11 +24,11 @@
 
   <div class="pt-4 pb-12 col-span-2">
     <div class="text-5xl">
-      <h2>{{ data.investmentOptions.title }}</h2>
+      <h2>{{data.investmentOptions.title}}</h2>
     </div>
 
     <div class="mt-6">
-      <p class="text-slate-300">{{ data.investmentOptions.description }}</p>
+      <p class="text-slate-300">{{data.investmentOptions.description}}</p>
     </div>
 
     <div class="mt-6">

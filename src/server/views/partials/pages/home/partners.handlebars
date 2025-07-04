@@ -2,12 +2,10 @@
   <div id="partner-list-marquee">
     <div class="flex items-center">
       {{#each data.partners}}
-        <div class="flex items-center gap-2 brightness-150 transition-transform saturate-0 hover:saturate-100 hover:scale-110 hover:brightness-100 mx-10">
-          <img
-            src="{{this.image}}" 
-            alt="{{this.name}}" 
-            width="100" 
-          />
+        <div
+          class="flex items-center gap-2 brightness-150 transition-transform saturate-0 hover:saturate-100 hover:scale-110 hover:brightness-100 mx-10"
+        >
+          <img src="{{this.image}}" alt="{{this.name}}" width="100" />
         </div>
       {{/each}}
     </div>

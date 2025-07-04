@@ -8,16 +8,16 @@ exports.default = {
     hero: {
         tagline: "Your best partner for wealth growth",
         title: "Grow your wealth with expert-managed investments.",
-        description: `${app_1.default.name} lets you pick from curated investment opportunities. You choose where to put your money — we do the work, and you enjoy the returns.`,
+        description: `${app_1.default.name} lets you pick from curated investment opportunities. You choose where to put your money — we do the work, and you enjoy the returns.`
     },
     partners: [
         {
             name: "Avaloq",
-            image: "/img/partners/avaloq.svg",
+            image: "/img/partners/avaloq.svg"
         },
         {
             name: "Metaco",
-            image: "/img/partners/metaco.png",
+            image: "/img/partners/metaco.png"
         },
         {
             name: "Sygnum",
@@ -25,15 +25,15 @@ exports.default = {
         },
         {
             name: "OTransfer",
-            image: "/img/partners/otransfer.png",
+            image: "/img/partners/otransfer.png"
         },
         {
             name: "Monarch",
-            image: "/img/partners/monarch.png",
+            image: "/img/partners/monarch.png"
         },
         {
             name: "Holded",
-            image: "/img/partners/holded.png",
+            image: "/img/partners/holded.png"
         },
         {
             name: "AlphaSense",
@@ -66,10 +66,7 @@ exports.default = {
         description: "Browse our carefully designed investment tracks. Choose what fits your goals — from low-risk growth to aggressive returns — and let us do the rest."
     },
     features: {
-        title: [
-            "Built for Confidence",
-            "Powered by Expertise"
-        ],
+        title: ["Built for Confidence", "Powered by Expertise"],
         description: `${app_1.default.name} equips you with clarity, confidence, and choice. Our platform is built to simplify investing while maximizing impact.`,
         items: [
             {

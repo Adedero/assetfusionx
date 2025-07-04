@@ -28,6 +28,17 @@ class Env {
             }
         }
     }
+    isEnv(value) {
+        if (value === "dev" || value === "development") {
+            return (!this.getSafe("NODE_ENV") ||
+                this.getSafe("NODE_ENV") === value ||
+                this.getSafe("NODE_ENV") !== "production" ||
+                this.getSafe("NODE_ENV") !== "test");
+        }
+        else {
+            return this.getSafe("NODE_ENV") === value;
+        }
+    }
     get(key, fallback) {
         if (this.schema && this.parsed && key in this.parsed) {
             return this.parsed[key];
@@ -61,12 +72,12 @@ class Env {
             // File might not exist, no problem
         }
         const lines = content.split("\n");
-        const updated = lines.map(line => {
+        const updated = lines.map((line) => {
             if (line.startsWith(`${key}=`))
                 return `${key}=${value}`;
             return line;
         });
-        if (!lines.some(line => line.startsWith(`${key}=`))) {
+        if (!lines.some((line) => line.startsWith(`${key}=`))) {
             updated.push(`${key}=${value}`);
         }
         await promises_1.default.writeFile(envPath, updated.join("\n"), "utf-8");
@@ -89,8 +100,8 @@ class Env {
     }
     formatZodError(error) {
         return error.errors
-            .map(err => `  - ${err.path.join('.')}: ${err.message}`)
-            .join('\n');
+            .map((err) => `  - ${err.path.join(".")}: ${err.message}`)
+            .join("\n");
     }
     async generateExampleEnv() {
         if (!this.schema)
@@ -132,4 +143,4 @@ env.set("SOME_ENV", "Value", options { env: if provided, this is the file the ne
 env.has("ENV_VAR")
 env.getAll =>
 env.getSchema
-*/ 
+*/

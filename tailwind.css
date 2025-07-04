@@ -28,6 +28,26 @@
   --color-tertiary-950: oklch(0.302 0.056 229.695);
 }
 
+@layer utilities {
+  flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  grid-center {
+    display: grid;
+    place-content: center;
+  }
+
+  absolute-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
+
 /* Components */
 .btn {
   @apply cursor-pointer font-medium px-4 py-1.5 flex items-center gap-2 transition-colors;

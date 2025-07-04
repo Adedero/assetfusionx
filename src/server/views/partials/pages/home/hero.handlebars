@@ -1,24 +1,26 @@
 <div class="grid grid-cols-2 gap-5 px-8 pt-20 items-center">
   <div class="space-y-4">
-    <div class="w-fit py-1.5 px-3 rounded-full border border-slate-700 bg-slate-800/40 backdrop-blur-lg flex items-center gap-2">
+    <div
+      class="w-fit py-1.5 px-3 rounded-full border border-slate-700 bg-slate-800/40 backdrop-blur-lg flex items-center gap-2"
+    >
       <iconify-icon icon="lucide:command"></iconify-icon>
       <p class="text-xs">
-        {{ data.hero.tagline }}
+        {{data.hero.tagline}}
       </p>
     </div>
 
     <div class="h-60 grid items-end">
-      <h1 
-        id="typewriter" 
-        data-text="{{ data.hero.title }} | Choose your investment. We handle the rest. | Multiply your assets with our solid investment plans. | Everything made ridiculously easy with {{ app.name }}." 
+      <h1
+        id="typewriter"
+        data-text="{{data.hero.title}} | Choose your investment. We handle the rest. | Multiply your assets with our solid investment plans. | Everything made ridiculously easy with {{app.name}}."
         class="text-6xl"
       >
-        {{ data.hero.title }}
+        {{data.hero.title}}
       </h1>
     </div>
 
     <p class="text-slate-300">
-      {{ data.hero.description }}
+      {{data.hero.description}}
     </p>
 
     <div class="flex items-center gap-4">

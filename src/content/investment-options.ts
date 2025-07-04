@@ -4,7 +4,8 @@ const investmentOptions = [
   {
     icon: "lucide:building",
     name: "Lorem Ipsum",
-    description: "Lorem ipsum dolor sit amet consequetur. Ipsis contra sum hec dies.",
+    description:
+      "Lorem ipsum dolor sit amet consequetur. Ipsis contra sum hec dies.",
     details: [
       {
         image: "",
@@ -16,7 +17,8 @@ const investmentOptions = [
   {
     icon: "lucide:building",
     name: "Lorem Ipsum",
-    description: "Lorem ipsum dolor sit amet consequetur. Ipsis contra sum hec dies.",
+    description:
+      "Lorem ipsum dolor sit amet consequetur. Ipsis contra sum hec dies.",
     details: [
       {
         image: "",
@@ -28,7 +30,8 @@ const investmentOptions = [
   {
     icon: "lucide:building",
     name: "Lorem Ipsum",
-    description: "Lorem ipsum dolor sit amet consequetur. Ipsis contra sum hec dies.",
+    description:
+      "Lorem ipsum dolor sit amet consequetur. Ipsis contra sum hec dies.",
     details: [
       {
         image: "",
@@ -40,7 +43,8 @@ const investmentOptions = [
   {
     icon: "lucide:building",
     name: "Lorem Ipsum",
-    description: "Lorem ipsum dolor sit amet consequetur. Ipsis contra sum hec dies.",
+    description:
+      "Lorem ipsum dolor sit amet consequetur. Ipsis contra sum hec dies.",
     details: [
       {
         image: "",
@@ -52,7 +56,8 @@ const investmentOptions = [
   {
     icon: "lucide:building",
     name: "Lorem Ipsum",
-    description: "Lorem ipsum dolor sit amet consequetur. Ipsis contra sum hec dies.",
+    description:
+      "Lorem ipsum dolor sit amet consequetur. Ipsis contra sum hec dies.",
     details: [
       {
         image: "",
@@ -64,7 +69,8 @@ const investmentOptions = [
   {
     icon: "lucide:building",
     name: "Lorem Ipsum",
-    description: "Lorem ipsum dolor sit amet consequetur. Ipsis contra sum hec dies.",
+    description:
+      "Lorem ipsum dolor sit amet consequetur. Ipsis contra sum hec dies.",
     details: [
       {
         image: "",
@@ -76,7 +82,8 @@ const investmentOptions = [
   {
     icon: "lucide:building",
     name: "Lorem Ipsum",
-    description: "Lorem ipsum dolor sit amet consequetur. Ipsis contra sum hec dies.",
+    description:
+      "Lorem ipsum dolor sit amet consequetur. Ipsis contra sum hec dies.",
     details: [
       {
         image: "",
@@ -85,6 +92,6 @@ const investmentOptions = [
       }
     ]
   }
-]
+];
 
 export default investmentOptions;

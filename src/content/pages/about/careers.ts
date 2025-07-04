@@ -4,7 +4,12 @@ import { JSONTree } from "#src/server/utils/helpers/json-to-html";
 const pageData: JSONTree[] = [
   {
     node: { type: "element", value: "div" },
-    attr: [{ name: "class", value: "space-y-12 max-w-6xl mx-auto py-16 px-4 sm:px-6 lg:px-8" }],
+    attr: [
+      {
+        name: "class",
+        value: "space-y-12 max-w-6xl mx-auto pt-8 pb-16 px-4 sm:px-6 lg:px-8"
+      }
+    ],
     children: [
       // Hero Section
       {
@@ -13,23 +18,34 @@ const pageData: JSONTree[] = [
         children: [
           {
             node: { type: "element", value: "h1" },
-            attr: [{ name: "class", value: "text-5xl font-bold text-slate-900 sm:text-6xl" }],
-            children: [
-              { node: { type: "text", value: "Join Our Team" } }
-            ]
+            attr: [{ name: "class", value: "text-2xl font-bold sm:text-6xl" }],
+            children: [{ node: { type: "text", value: "Join Our Team" } }]
           },
           {
             node: { type: "element", value: "p" },
-            attr: [{ name: "class", value: "text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed" }],
+            attr: [
+              {
+                name: "class",
+                value: "text-slate-300 max-w-3xl mx-auto leading-relaxed"
+              }
+            ],
             children: [
               {
-                node: { type: "text", value: `Help us revolutionize investing at ${app.name}. We're building the future of wealth management and looking for passionate individuals to join our mission.` }
+                node: {
+                  type: "text",
+                  value: `Help us revolutionize investing at ${app.name}. We're building the future of wealth management and looking for passionate individuals to join our mission.`
+                }
               }
             ]
           },
           {
             node: { type: "element", value: "div" },
-            attr: [{ name: "class", value: "w-24 h-1 bg-blue-500 mx-auto rounded-full" }]
+            attr: [
+              {
+                name: "class",
+                value: "w-24 h-1 bg-blue-500 mx-auto rounded-full"
+              }
+            ]
           }
         ]
       },
@@ -37,22 +53,39 @@ const pageData: JSONTree[] = [
       // Why Work With Us
       {
         node: { type: "element", value: "div" },
-        attr: [{ name: "class", value: "bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8" }],
+        attr: [
+          {
+            name: "class",
+            value: "bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8"
+          }
+        ],
         children: [
           {
             node: { type: "element", value: "h2" },
-            attr: [{ name: "class", value: "text-3xl font-bold text-slate-900 text-center mb-8" }],
+            attr: [
+              {
+                name: "class",
+                value: "text-2xl font-bold text-slate-900 text-center mb-8"
+              }
+            ],
             children: [
               { node: { type: "text", value: `Why Work at ${app.name}?` } }
             ]
           },
           {
             node: { type: "element", value: "div" },
-            attr: [{ name: "class", value: "grid md:grid-cols-2 lg:grid-cols-3 gap-6" }],
+            attr: [
+              {
+                name: "class",
+                value: "grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+              }
+            ],
             children: [
               {
                 node: { type: "element", value: "div" },
-                attr: [{ name: "class", value: "bg-white p-6 rounded-xl shadow-sm" }],
+                attr: [
+                  { name: "class", value: "bg-white p-6 rounded-xl shadow-sm" }
+                ],
                 children: [
                   {
                     node: { type: "element", value: "iconify-icon" },
@@ -63,7 +96,12 @@ const pageData: JSONTree[] = [
                   },
                   {
                     node: { type: "element", value: "h3" },
-                    attr: [{ name: "class", value: "text-xl font-semibold text-slate-900 mb-3" }],
+                    attr: [
+                      {
+                        name: "class",
+                        value: "text-xl font-semibold text-slate-900 mb-3"
+                      }
+                    ],
                     children: [
                       { node: { type: "text", value: "Innovation at Scale" } }
                     ]
@@ -72,14 +110,22 @@ const pageData: JSONTree[] = [
                     node: { type: "element", value: "p" },
                     attr: [{ name: "class", value: "text-slate-600" }],
                     children: [
-                      { node: { type: "text", value: "Work with cutting-edge AI and machine learning technologies to solve real financial challenges for thousands of investors." } }
+                      {
+                        node: {
+                          type: "text",
+                          value:
+                            "Work with cutting-edge AI and machine learning technologies to solve real financial challenges for thousands of investors."
+                        }
+                      }
                     ]
                   }
                 ]
               },
               {
                 node: { type: "element", value: "div" },
-                attr: [{ name: "class", value: "bg-white p-6 rounded-xl shadow-sm" }],
+                attr: [
+                  { name: "class", value: "bg-white p-6 rounded-xl shadow-sm" }
+                ],
                 children: [
                   {
                     node: { type: "element", value: "iconify-icon" },
@@ -90,7 +136,12 @@ const pageData: JSONTree[] = [
                   },
                   {
                     node: { type: "element", value: "h3" },
-                    attr: [{ name: "class", value: "text-xl font-semibold text-slate-900 mb-3" }],
+                    attr: [
+                      {
+                        name: "class",
+                        value: "text-xl font-semibold text-slate-900 mb-3"
+                      }
+                    ],
                     children: [
                       { node: { type: "text", value: "Rapid Growth" } }
                     ]
@@ -99,14 +150,22 @@ const pageData: JSONTree[] = [
                     node: { type: "element", value: "p" },
                     attr: [{ name: "class", value: "text-slate-600" }],
                     children: [
-                      { node: { type: "text", value: "Join a fast-growing fintech company with unlimited potential for career advancement and professional development." } }
+                      {
+                        node: {
+                          type: "text",
+                          value:
+                            "Join a fast-growing fintech company with unlimited potential for career advancement and professional development."
+                        }
+                      }
                     ]
                   }
                 ]
               },
               {
                 node: { type: "element", value: "div" },
-                attr: [{ name: "class", value: "bg-white p-6 rounded-xl shadow-sm" }],
+                attr: [
+                  { name: "class", value: "bg-white p-6 rounded-xl shadow-sm" }
+                ],
                 children: [
                   {
                     node: { type: "element", value: "iconify-icon" },
@@ -117,7 +176,12 @@ const pageData: JSONTree[] = [
                   },
                   {
                     node: { type: "element", value: "h3" },
-                    attr: [{ name: "class", value: "text-xl font-semibold text-slate-900 mb-3" }],
+                    attr: [
+                      {
+                        name: "class",
+                        value: "text-xl font-semibold text-slate-900 mb-3"
+                      }
+                    ],
                     children: [
                       { node: { type: "text", value: "Meaningful Impact" } }
                     ]
@@ -126,14 +190,22 @@ const pageData: JSONTree[] = [
                     node: { type: "element", value: "p" },
                     attr: [{ name: "class", value: "text-slate-600" }],
                     children: [
-                      { node: { type: "text", value: "Help democratize wealth building and make financial success accessible to everyone, not just the privileged few." } }
+                      {
+                        node: {
+                          type: "text",
+                          value:
+                            "Help democratize wealth building and make financial success accessible to everyone, not just the privileged few."
+                        }
+                      }
                     ]
                   }
                 ]
               },
               {
                 node: { type: "element", value: "div" },
-                attr: [{ name: "class", value: "bg-white p-6 rounded-xl shadow-sm" }],
+                attr: [
+                  { name: "class", value: "bg-white p-6 rounded-xl shadow-sm" }
+                ],
                 children: [
                   {
                     node: { type: "element", value: "iconify-icon" },
@@ -144,7 +216,12 @@ const pageData: JSONTree[] = [
                   },
                   {
                     node: { type: "element", value: "h3" },
-                    attr: [{ name: "class", value: "text-xl font-semibold text-slate-900 mb-3" }],
+                    attr: [
+                      {
+                        name: "class",
+                        value: "text-xl font-semibold text-slate-900 mb-3"
+                      }
+                    ],
                     children: [
                       { node: { type: "text", value: "Collaborative Culture" } }
                     ]
@@ -153,14 +230,22 @@ const pageData: JSONTree[] = [
                     node: { type: "element", value: "p" },
                     attr: [{ name: "class", value: "text-slate-600" }],
                     children: [
-                      { node: { type: "text", value: "Work alongside brilliant minds in a supportive environment that values diverse perspectives and creative problem-solving." } }
+                      {
+                        node: {
+                          type: "text",
+                          value:
+                            "Work alongside brilliant minds in a supportive environment that values diverse perspectives and creative problem-solving."
+                        }
+                      }
                     ]
                   }
                 ]
               },
               {
                 node: { type: "element", value: "div" },
-                attr: [{ name: "class", value: "bg-white p-6 rounded-xl shadow-sm" }],
+                attr: [
+                  { name: "class", value: "bg-white p-6 rounded-xl shadow-sm" }
+                ],
                 children: [
                   {
                     node: { type: "element", value: "iconify-icon" },
@@ -171,7 +256,12 @@ const pageData: JSONTree[] = [
                   },
                   {
                     node: { type: "element", value: "h3" },
-                    attr: [{ name: "class", value: "text-xl font-semibold text-slate-900 mb-3" }],
+                    attr: [
+                      {
+                        name: "class",
+                        value: "text-xl font-semibold text-slate-900 mb-3"
+                      }
+                    ],
                     children: [
                       { node: { type: "text", value: "Competitive Rewards" } }
                     ]
@@ -180,14 +270,22 @@ const pageData: JSONTree[] = [
                     node: { type: "element", value: "p" },
                     attr: [{ name: "class", value: "text-slate-600" }],
                     children: [
-                      { node: { type: "text", value: "Enjoy competitive salaries, equity participation, comprehensive benefits, and performance bonuses that reward excellence." } }
+                      {
+                        node: {
+                          type: "text",
+                          value:
+                            "Enjoy competitive salaries, equity participation, comprehensive benefits, and performance bonuses that reward excellence."
+                        }
+                      }
                     ]
                   }
                 ]
               },
               {
                 node: { type: "element", value: "div" },
-                attr: [{ name: "class", value: "bg-white p-6 rounded-xl shadow-sm" }],
+                attr: [
+                  { name: "class", value: "bg-white p-6 rounded-xl shadow-sm" }
+                ],
                 children: [
                   {
                     node: { type: "element", value: "iconify-icon" },
@@ -198,7 +296,12 @@ const pageData: JSONTree[] = [
                   },
                   {
                     node: { type: "element", value: "h3" },
-                    attr: [{ name: "class", value: "text-xl font-semibold text-slate-900 mb-3" }],
+                    attr: [
+                      {
+                        name: "class",
+                        value: "text-xl font-semibold text-slate-900 mb-3"
+                      }
+                    ],
                     children: [
                       { node: { type: "text", value: "Remote-First" } }
                     ]
@@ -207,7 +310,13 @@ const pageData: JSONTree[] = [
                     node: { type: "element", value: "p" },
                     attr: [{ name: "class", value: "text-slate-600" }],
                     children: [
-                      { node: { type: "text", value: "Work from anywhere with flexible schedules, modern tools, and a culture built around results, not hours logged." } }
+                      {
+                        node: {
+                          type: "text",
+                          value:
+                            "Work from anywhere with flexible schedules, modern tools, and a culture built around results, not hours logged."
+                        }
+                      }
                     ]
                   }
                 ]
@@ -224,10 +333,13 @@ const pageData: JSONTree[] = [
         children: [
           {
             node: { type: "element", value: "h2" },
-            attr: [{ name: "class", value: "text-3xl font-bold text-slate-900 text-center" }],
-            children: [
-              { node: { type: "text", value: "Open Positions" } }
-            ]
+            attr: [
+              {
+                name: "class",
+                value: "text-2xl font-bold text-tertiary-500 text-center"
+              }
+            ],
+            children: [{ node: { type: "text", value: "Open Positions" } }]
           },
           {
             node: { type: "element", value: "div" },
@@ -236,11 +348,23 @@ const pageData: JSONTree[] = [
               // Senior Software Engineer
               {
                 node: { type: "element", value: "div" },
-                attr: [{ name: "class", value: "bg-white border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow" }],
+                attr: [
+                  {
+                    name: "class",
+                    value:
+                      "bg-white border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow"
+                  }
+                ],
                 children: [
                   {
                     node: { type: "element", value: "div" },
-                    attr: [{ name: "class", value: "flex flex-col md:flex-row md:items-center md:justify-between" }],
+                    attr: [
+                      {
+                        name: "class",
+                        value:
+                          "flex flex-col md:flex-row md:items-center md:justify-between"
+                      }
+                    ],
                     children: [
                       {
                         node: { type: "element", value: "div" },
@@ -248,32 +372,64 @@ const pageData: JSONTree[] = [
                         children: [
                           {
                             node: { type: "element", value: "h3" },
-                            attr: [{ name: "class", value: "text-xl font-semibold text-slate-900" }],
+                            attr: [
+                              {
+                                name: "class",
+                                value: "text-lg font-semibold text-slate-900"
+                              }
+                            ],
                             children: [
-                              { node: { type: "text", value: "Senior Software Engineer - Backend" } }
+                              {
+                                node: {
+                                  type: "text",
+                                  value: "Senior Software Engineer - Backend"
+                                }
+                              }
                             ]
                           },
                           {
                             node: { type: "element", value: "div" },
-                            attr: [{ name: "class", value: "flex flex-wrap gap-2" }],
+                            attr: [
+                              { name: "class", value: "flex flex-wrap gap-2" }
+                            ],
                             children: [
                               {
                                 node: { type: "element", value: "span" },
-                                attr: [{ name: "class", value: "px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm" }],
+                                attr: [
+                                  {
+                                    name: "class",
+                                    value:
+                                      "px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs"
+                                  }
+                                ],
                                 children: [
-                                  { node: { type: "text", value: "Engineering" } }
+                                  {
+                                    node: { type: "text", value: "Engineering" }
+                                  }
                                 ]
                               },
                               {
                                 node: { type: "element", value: "span" },
-                                attr: [{ name: "class", value: "px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm" }],
+                                attr: [
+                                  {
+                                    name: "class",
+                                    value:
+                                      "px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs"
+                                  }
+                                ],
                                 children: [
                                   { node: { type: "text", value: "Full-time" } }
                                 ]
                               },
                               {
                                 node: { type: "element", value: "span" },
-                                attr: [{ name: "class", value: "px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm" }],
+                                attr: [
+                                  {
+                                    name: "class",
+                                    value:
+                                      "px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs"
+                                  }
+                                ],
                                 children: [
                                   { node: { type: "text", value: "Remote" } }
                                 ]
@@ -284,7 +440,13 @@ const pageData: JSONTree[] = [
                             node: { type: "element", value: "p" },
                             attr: [{ name: "class", value: "text-slate-600" }],
                             children: [
-                              { node: { type: "text", value: "Build scalable APIs and infrastructure for our investment platform. Work with Python, PostgreSQL, and cloud technologies." } }
+                              {
+                                node: {
+                                  type: "text",
+                                  value:
+                                    "Build scalable APIs and infrastructure for our investment platform. Work with Python, PostgreSQL, and cloud technologies."
+                                }
+                              }
                             ]
                           }
                         ]
@@ -292,8 +454,15 @@ const pageData: JSONTree[] = [
                       {
                         node: { type: "element", value: "a" },
                         attr: [
-                          { name: "href", value: "/careers/senior-software-engineer-backend" },
-                          { name: "class", value: "mt-4 md:mt-0 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors inline-block text-center" }
+                          {
+                            name: "href",
+                            value: "#careers/senior-software-engineer-backend"
+                          },
+                          {
+                            name: "class",
+                            value:
+                              "shrink-0 mt-4 md:mt-0 bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors inline-block text-center"
+                          }
                         ],
                         children: [
                           { node: { type: "text", value: "Apply Now" } }
@@ -306,11 +475,23 @@ const pageData: JSONTree[] = [
               // Data Scientist
               {
                 node: { type: "element", value: "div" },
-                attr: [{ name: "class", value: "bg-white border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow" }],
+                attr: [
+                  {
+                    name: "class",
+                    value:
+                      "bg-white border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow"
+                  }
+                ],
                 children: [
                   {
                     node: { type: "element", value: "div" },
-                    attr: [{ name: "class", value: "flex flex-col md:flex-row md:items-center md:justify-between" }],
+                    attr: [
+                      {
+                        name: "class",
+                        value:
+                          "flex flex-col md:flex-row md:items-center md:justify-between"
+                      }
+                    ],
                     children: [
                       {
                         node: { type: "element", value: "div" },
@@ -318,32 +499,67 @@ const pageData: JSONTree[] = [
                         children: [
                           {
                             node: { type: "element", value: "h3" },
-                            attr: [{ name: "class", value: "text-xl font-semibold text-slate-900" }],
+                            attr: [
+                              {
+                                name: "class",
+                                value: "text-lg font-semibold text-slate-900"
+                              }
+                            ],
                             children: [
-                              { node: { type: "text", value: "Senior Data Scientist - ML/AI" } }
+                              {
+                                node: {
+                                  type: "text",
+                                  value: "Senior Data Scientist - ML/AI"
+                                }
+                              }
                             ]
                           },
                           {
                             node: { type: "element", value: "div" },
-                            attr: [{ name: "class", value: "flex flex-wrap gap-2" }],
+                            attr: [
+                              { name: "class", value: "flex flex-wrap gap-2" }
+                            ],
                             children: [
                               {
                                 node: { type: "element", value: "span" },
-                                attr: [{ name: "class", value: "px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm" }],
+                                attr: [
+                                  {
+                                    name: "class",
+                                    value:
+                                      "px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-xs"
+                                  }
+                                ],
                                 children: [
-                                  { node: { type: "text", value: "Data Science" } }
+                                  {
+                                    node: {
+                                      type: "text",
+                                      value: "Data Science"
+                                    }
+                                  }
                                 ]
                               },
                               {
                                 node: { type: "element", value: "span" },
-                                attr: [{ name: "class", value: "px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm" }],
+                                attr: [
+                                  {
+                                    name: "class",
+                                    value:
+                                      "px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs"
+                                  }
+                                ],
                                 children: [
                                   { node: { type: "text", value: "Full-time" } }
                                 ]
                               },
                               {
                                 node: { type: "element", value: "span" },
-                                attr: [{ name: "class", value: "px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm" }],
+                                attr: [
+                                  {
+                                    name: "class",
+                                    value:
+                                      "px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs"
+                                  }
+                                ],
                                 children: [
                                   { node: { type: "text", value: "Remote" } }
                                 ]
@@ -354,7 +570,13 @@ const pageData: JSONTree[] = [
                             node: { type: "element", value: "p" },
                             attr: [{ name: "class", value: "text-slate-600" }],
                             children: [
-                              { node: { type: "text", value: "Develop predictive models and algorithms for investment strategies. Experience with TensorFlow, Python, and financial markets required." } }
+                              {
+                                node: {
+                                  type: "text",
+                                  value:
+                                    "Develop predictive models and algorithms for investment strategies. Experience with TensorFlow, Python, and financial markets required."
+                                }
+                              }
                             ]
                           }
                         ]
@@ -362,8 +584,15 @@ const pageData: JSONTree[] = [
                       {
                         node: { type: "element", value: "a" },
                         attr: [
-                          { name: "href", value: "/careers/senior-data-scientist" },
-                          { name: "class", value: "mt-4 md:mt-0 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors inline-block text-center" }
+                          {
+                            name: "href",
+                            value: "#careers/senior-data-scientist"
+                          },
+                          {
+                            name: "class",
+                            value:
+                              "shrink-0 mt-4 md:mt-0 bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors inline-block text-center"
+                          }
                         ],
                         children: [
                           { node: { type: "text", value: "Apply Now" } }
@@ -376,11 +605,23 @@ const pageData: JSONTree[] = [
               // Product Manager
               {
                 node: { type: "element", value: "div" },
-                attr: [{ name: "class", value: "bg-white border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow" }],
+                attr: [
+                  {
+                    name: "class",
+                    value:
+                      "bg-white border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow"
+                  }
+                ],
                 children: [
                   {
                     node: { type: "element", value: "div" },
-                    attr: [{ name: "class", value: "flex flex-col md:flex-row md:items-center md:justify-between" }],
+                    attr: [
+                      {
+                        name: "class",
+                        value:
+                          "flex flex-col md:flex-row md:items-center md:justify-between"
+                      }
+                    ],
                     children: [
                       {
                         node: { type: "element", value: "div" },
@@ -388,32 +629,62 @@ const pageData: JSONTree[] = [
                         children: [
                           {
                             node: { type: "element", value: "h3" },
-                            attr: [{ name: "class", value: "text-xl font-semibold text-slate-900" }],
+                            attr: [
+                              {
+                                name: "class",
+                                value: "text-lg font-semibold text-slate-900"
+                              }
+                            ],
                             children: [
-                              { node: { type: "text", value: "Senior Product Manager" } }
+                              {
+                                node: {
+                                  type: "text",
+                                  value: "Senior Product Manager"
+                                }
+                              }
                             ]
                           },
                           {
                             node: { type: "element", value: "div" },
-                            attr: [{ name: "class", value: "flex flex-wrap gap-2" }],
+                            attr: [
+                              { name: "class", value: "flex flex-wrap gap-2" }
+                            ],
                             children: [
                               {
                                 node: { type: "element", value: "span" },
-                                attr: [{ name: "class", value: "px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm" }],
+                                attr: [
+                                  {
+                                    name: "class",
+                                    value:
+                                      "px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-xs"
+                                  }
+                                ],
                                 children: [
                                   { node: { type: "text", value: "Product" } }
                                 ]
                               },
                               {
                                 node: { type: "element", value: "span" },
-                                attr: [{ name: "class", value: "px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm" }],
+                                attr: [
+                                  {
+                                    name: "class",
+                                    value:
+                                      "px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs"
+                                  }
+                                ],
                                 children: [
                                   { node: { type: "text", value: "Full-time" } }
                                 ]
                               },
                               {
                                 node: { type: "element", value: "span" },
-                                attr: [{ name: "class", value: "px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm" }],
+                                attr: [
+                                  {
+                                    name: "class",
+                                    value:
+                                      "px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs"
+                                  }
+                                ],
                                 children: [
                                   { node: { type: "text", value: "Remote" } }
                                 ]
@@ -424,7 +695,13 @@ const pageData: JSONTree[] = [
                             node: { type: "element", value: "p" },
                             attr: [{ name: "class", value: "text-slate-600" }],
                             children: [
-                              { node: { type: "text", value: "Lead product strategy and execution for our investment platform. Drive user experience improvements and feature development." } }
+                              {
+                                node: {
+                                  type: "text",
+                                  value:
+                                    "Lead product strategy and execution for our investment platform. Drive user experience improvements and feature development."
+                                }
+                              }
                             ]
                           }
                         ]
@@ -432,8 +709,15 @@ const pageData: JSONTree[] = [
                       {
                         node: { type: "element", value: "a" },
                         attr: [
-                          { name: "href", value: "/careers/senior-product-manager" },
-                          { name: "class", value: "mt-4 md:mt-0 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors inline-block text-center" }
+                          {
+                            name: "href",
+                            value: "#careers/senior-product-manager"
+                          },
+                          {
+                            name: "class",
+                            value:
+                              "shrink-0 mt-4 md:mt-0 bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors inline-block text-center"
+                          }
                         ],
                         children: [
                           { node: { type: "text", value: "Apply Now" } }
@@ -446,11 +730,23 @@ const pageData: JSONTree[] = [
               // DevOps Engineer
               {
                 node: { type: "element", value: "div" },
-                attr: [{ name: "class", value: "bg-white border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow" }],
+                attr: [
+                  {
+                    name: "class",
+                    value:
+                      "bg-white border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow"
+                  }
+                ],
                 children: [
                   {
                     node: { type: "element", value: "div" },
-                    attr: [{ name: "class", value: "flex flex-col md:flex-row md:items-center md:justify-between" }],
+                    attr: [
+                      {
+                        name: "class",
+                        value:
+                          "flex flex-col md:flex-row md:items-center md:justify-between"
+                      }
+                    ],
                     children: [
                       {
                         node: { type: "element", value: "div" },
@@ -458,32 +754,64 @@ const pageData: JSONTree[] = [
                         children: [
                           {
                             node: { type: "element", value: "h3" },
-                            attr: [{ name: "class", value: "text-xl font-semibold text-slate-900" }],
+                            attr: [
+                              {
+                                name: "class",
+                                value: "text-lg font-semibold text-slate-900"
+                              }
+                            ],
                             children: [
-                              { node: { type: "text", value: "DevOps Engineer" } }
+                              {
+                                node: { type: "text", value: "DevOps Engineer" }
+                              }
                             ]
                           },
                           {
                             node: { type: "element", value: "div" },
-                            attr: [{ name: "class", value: "flex flex-wrap gap-2" }],
+                            attr: [
+                              { name: "class", value: "flex flex-wrap gap-2" }
+                            ],
                             children: [
                               {
                                 node: { type: "element", value: "span" },
-                                attr: [{ name: "class", value: "px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-sm" }],
+                                attr: [
+                                  {
+                                    name: "class",
+                                    value:
+                                      "px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-xs"
+                                  }
+                                ],
                                 children: [
-                                  { node: { type: "text", value: "Infrastructure" } }
+                                  {
+                                    node: {
+                                      type: "text",
+                                      value: "Infrastructure"
+                                    }
+                                  }
                                 ]
                               },
                               {
                                 node: { type: "element", value: "span" },
-                                attr: [{ name: "class", value: "px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm" }],
+                                attr: [
+                                  {
+                                    name: "class",
+                                    value:
+                                      "px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs"
+                                  }
+                                ],
                                 children: [
                                   { node: { type: "text", value: "Full-time" } }
                                 ]
                               },
                               {
                                 node: { type: "element", value: "span" },
-                                attr: [{ name: "class", value: "px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm" }],
+                                attr: [
+                                  {
+                                    name: "class",
+                                    value:
+                                      "px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs"
+                                  }
+                                ],
                                 children: [
                                   { node: { type: "text", value: "Remote" } }
                                 ]
@@ -494,7 +822,13 @@ const pageData: JSONTree[] = [
                             node: { type: "element", value: "p" },
                             attr: [{ name: "class", value: "text-slate-600" }],
                             children: [
-                              { node: { type: "text", value: "Build and maintain our cloud infrastructure. Work with Kubernetes, AWS, and CI/CD pipelines to ensure platform reliability." } }
+                              {
+                                node: {
+                                  type: "text",
+                                  value:
+                                    "Build and maintain our cloud infrastructure. Work with Kubernetes, AWS, and CI/CD pipelines to ensure platform reliability."
+                                }
+                              }
                             ]
                           }
                         ]
@@ -502,8 +836,12 @@ const pageData: JSONTree[] = [
                       {
                         node: { type: "element", value: "a" },
                         attr: [
-                          { name: "href", value: "/careers/devops-engineer" },
-                          { name: "class", value: "mt-4 md:mt-0 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors inline-block text-center" }
+                          { name: "href", value: "#careers/devops-engineer" },
+                          {
+                            name: "class",
+                            value:
+                              "shrink-0 mt-4 md:mt-0 bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors inline-block text-center"
+                          }
                         ],
                         children: [
                           { node: { type: "text", value: "Apply Now" } }
@@ -521,14 +859,16 @@ const pageData: JSONTree[] = [
       // Benefits & Perks
       {
         node: { type: "element", value: "div" },
-        attr: [{ name: "class", value: "bg-slate-900 rounded-2xl p-8 text-white" }],
+        attr: [
+          { name: "class", value: "bg-slate-900 rounded-2xl p-8 text-white" }
+        ],
         children: [
           {
             node: { type: "element", value: "h2" },
-            attr: [{ name: "class", value: "text-3xl font-bold text-center mb-8" }],
-            children: [
-              { node: { type: "text", value: "Benefits & Perks" } }
-            ]
+            attr: [
+              { name: "class", value: "text-3xl font-bold text-center mb-8" }
+            ],
+            children: [{ node: { type: "text", value: "Benefits & Perks" } }]
           },
           {
             node: { type: "element", value: "div" },
@@ -540,7 +880,9 @@ const pageData: JSONTree[] = [
                 children: [
                   {
                     node: { type: "element", value: "li" },
-                    attr: [{ name: "class", value: "flex items-center space-x-3" }],
+                    attr: [
+                      { name: "class", value: "flex items-center gap-x-3" }
+                    ],
                     children: [
                       {
                         node: { type: "element", value: "iconify-icon" },
@@ -549,12 +891,19 @@ const pageData: JSONTree[] = [
                           { name: "class", value: "text-green-400" }
                         ]
                       },
-                      { node: { type: "text", value: "Competitive salary + equity package" } }
+                      {
+                        node: {
+                          type: "text",
+                          value: "Competitive salary + equity package"
+                        }
+                      }
                     ]
                   },
                   {
                     node: { type: "element", value: "li" },
-                    attr: [{ name: "class", value: "flex items-center space-x-3" }],
+                    attr: [
+                      { name: "class", value: "flex items-center gap-x-3" }
+                    ],
                     children: [
                       {
                         node: { type: "element", value: "iconify-icon" },
@@ -563,12 +912,20 @@ const pageData: JSONTree[] = [
                           { name: "class", value: "text-green-400" }
                         ]
                       },
-                      { node: { type: "text", value: "Comprehensive health, dental & vision insurance" } }
+                      {
+                        node: {
+                          type: "text",
+                          value:
+                            "Comprehensive health, dental & vision insurance"
+                        }
+                      }
                     ]
                   },
                   {
                     node: { type: "element", value: "li" },
-                    attr: [{ name: "class", value: "flex items-center space-x-3" }],
+                    attr: [
+                      { name: "class", value: "flex items-center gap-x-3" }
+                    ],
                     children: [
                       {
                         node: { type: "element", value: "iconify-icon" },
@@ -582,7 +939,9 @@ const pageData: JSONTree[] = [
                   },
                   {
                     node: { type: "element", value: "li" },
-                    attr: [{ name: "class", value: "flex items-center space-x-3" }],
+                    attr: [
+                      { name: "class", value: "flex items-center gap-x-3" }
+                    ],
                     children: [
                       {
                         node: { type: "element", value: "iconify-icon" },
@@ -591,12 +950,19 @@ const pageData: JSONTree[] = [
                           { name: "class", value: "text-green-400" }
                         ]
                       },
-                      { node: { type: "text", value: "$5,000 annual learning & development budget" } }
+                      {
+                        node: {
+                          type: "text",
+                          value: "$5,000 annual learning & development budget"
+                        }
+                      }
                     ]
                   },
                   {
                     node: { type: "element", value: "li" },
-                    attr: [{ name: "class", value: "flex items-center space-x-3" }],
+                    attr: [
+                      { name: "class", value: "flex items-center gap-x-3" }
+                    ],
                     children: [
                       {
                         node: { type: "element", value: "iconify-icon" },
@@ -605,7 +971,12 @@ const pageData: JSONTree[] = [
                           { name: "class", value: "text-green-400" }
                         ]
                       },
-                      { node: { type: "text", value: "401(k) with company matching" } }
+                      {
+                        node: {
+                          type: "text",
+                          value: "401(k) with company matching"
+                        }
+                      }
                     ]
                   }
                 ]
@@ -616,7 +987,9 @@ const pageData: JSONTree[] = [
                 children: [
                   {
                     node: { type: "element", value: "li" },
-                    attr: [{ name: "class", value: "flex items-center space-x-3" }],
+                    attr: [
+                      { name: "class", value: "flex items-center gap-x-3" }
+                    ],
                     children: [
                       {
                         node: { type: "element", value: "iconify-icon" },
@@ -625,12 +998,19 @@ const pageData: JSONTree[] = [
                           { name: "class", value: "text-green-400" }
                         ]
                       },
-                      { node: { type: "text", value: "Remote work stipend for home office setup" } }
+                      {
+                        node: {
+                          type: "text",
+                          value: "Remote work stipend for home office setup"
+                        }
+                      }
                     ]
                   },
                   {
                     node: { type: "element", value: "li" },
-                    attr: [{ name: "class", value: "flex items-center space-x-3" }],
+                    attr: [
+                      { name: "class", value: "flex items-center gap-x-3" }
+                    ],
                     children: [
                       {
                         node: { type: "element", value: "iconify-icon" },
@@ -639,9 +1019,14 @@ const pageData: JSONTree[] = [
                           { name: "class", value: "text-green-400" }
                         ]
                       },
-                      { node: { type: "text", value: "Flexible working hours across time zones" } }
+                      {
+                        node: {
+                          type: "text",
+                          value: "Flexible working hours across time zones"
+                        }
+                      }
                     ]
-                  },
+                  }
                 ]
               }
             ]
@@ -650,6 +1035,6 @@ const pageData: JSONTree[] = [
       }
     ]
   }
-]
+];
 
 export default pageData;

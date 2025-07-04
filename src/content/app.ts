@@ -1,5 +1,5 @@
 const app = {
-  name: "AssetFusionX",
-}
+  name: "AssetFusionX"
+};
 
 export default app;
