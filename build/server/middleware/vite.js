@@ -43,7 +43,7 @@ const helmet_1 = __importDefault(require("helmet"));
 const sirv_1 = __importDefault(require("sirv"));
 async function viteServer(app) {
     const base = env_1.default.getSafe("BASE", "/");
-    if (env_1.default.isNodeEnv("production")) {
+    if (env_1.default.isNodeEnv("development")) {
         const { createServer } = await Promise.resolve().then(() => __importStar(require("vite")));
         const viteServer = await createServer({
             configFile: node_path_1.default.resolve("vite.config.mts"),
