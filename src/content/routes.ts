@@ -66,7 +66,7 @@ const routes = [
       },
       {
         label: "Investor Education",
-        to: "/resources/education"
+        to: "/resources/investor-education"
       },
       {
         label: "Platform Walkthroughs",
@@ -94,10 +94,6 @@ const routes = [
         to: "/impact/sustainability"
       },
       {
-        label: "Client Testimonials",
-        to: "/impact/testimonials"
-      },
-      {
         label: "Track Record",
         to: "/impact/track-record"
       },
@@ -112,11 +108,11 @@ const routes = [
     children: [
       {
         label: "Terms of Use",
-        to: "/terms-of-use"
+        to: "/legal/terms-of-use"
       },
       {
         label: "Privacy Policy",
-        to: "/privacy-policy"
+        to: "/legal/privacy-policy"
       }
     ]
   }

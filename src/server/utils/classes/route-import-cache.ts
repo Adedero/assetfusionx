@@ -22,7 +22,7 @@ export default class RouteImportCache {
   async importCachedModule<T = unknown>(filePath: string): Promise<T> {
     const absPath = path.resolve(filePath);
 
-    if (!env.isEnv("dev") && this.moduleCache.has(absPath)) {
+    if (!env.isNodeEnv("dev") && this.moduleCache.has(absPath)) {
       return this.moduleCache.get(absPath) as T;
     }
 
@@ -34,7 +34,7 @@ export default class RouteImportCache {
 
     let rawData: unknown;
 
-    if (env.isEnv("dev")) {
+    if (env.isNodeEnv("dev")) {
       const module = await import(pathToFileURL(absPath).href);
       rawData = module.default || module;
     } else {

@@ -23,7 +23,7 @@ exports.default = {
             },
             {
                 label: "Reliable returns",
-                description: "Our investment teams and systems are built to reduce risk and deliver steady profits. Your money doesn’t sit idle — it works for you.",
+                description: "Our investment teams and systems are built to reduce risk and deliver steady profits. Your money doesn't sit idle — it works for you.",
                 icon: "lucide:trending-up"
             },
             {
@@ -53,7 +53,7 @@ exports.default = {
             },
             {
                 label: "Performance insights",
-                description: "You stay informed with clear, digestible updates about your portfolio’s growth and trajectory.",
+                description: "You stay informed with clear, digestible updates about your portfolio's growth and trajectory.",
                 icon: "lucide:line-chart"
             },
             {
@@ -84,7 +84,7 @@ exports.default = {
             },
             {
                 label: "Smart Investors",
-                description: "If you know the value of compounding, we’ll help your capital do more.",
+                description: "If you know the value of compounding, we'll help your capital do more.",
                 image: "/img/customers/investors.jpg"
             },
             {

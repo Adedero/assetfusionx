@@ -8,7 +8,7 @@ export default {
     description: `${app.name} lets you pick from curated investment opportunities. You choose where to put your money — we do the work, and you enjoy the returns.`
   },
   partners,
-  
+
   whyChooseUs: {
     title: `Why choose ${app.name}?`,
     content: `${app.name} gives you control over where your money goes — and then takes care of everything else. No market stress, no trading screens, just solid results.`,
@@ -22,7 +22,7 @@ export default {
       {
         label: "Reliable returns",
         description:
-          "Our investment teams and systems are built to reduce risk and deliver steady profits. Your money doesn’t sit idle — it works for you.",
+          "Our investment teams and systems are built to reduce risk and deliver steady profits. Your money doesn't sit idle — it works for you.",
         icon: "lucide:trending-up"
       },
       {
@@ -57,7 +57,7 @@ export default {
       {
         label: "Performance insights",
         description:
-          "You stay informed with clear, digestible updates about your portfolio’s growth and trajectory.",
+          "You stay informed with clear, digestible updates about your portfolio's growth and trajectory.",
         icon: "lucide:line-chart"
       },
       {
@@ -93,7 +93,7 @@ export default {
       {
         label: "Smart Investors",
         description:
-          "If you know the value of compounding, we’ll help your capital do more.",
+          "If you know the value of compounding, we'll help your capital do more.",
         image: "/img/customers/investors.jpg"
       },
       {

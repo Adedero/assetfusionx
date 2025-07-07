@@ -56,7 +56,7 @@ class RouteImportCache {
     }
     async importCachedModule(filePath) {
         const absPath = node_path_1.default.resolve(filePath);
-        if (!env_1.default.isEnv("dev") && this.moduleCache.has(absPath)) {
+        if (!env_1.default.isNodeEnv("dev") && this.moduleCache.has(absPath)) {
             return this.moduleCache.get(absPath);
         }
         try {
@@ -66,7 +66,7 @@ class RouteImportCache {
             throw new Error(`Module file not found: ${absPath}`);
         }
         let rawData;
-        if (env_1.default.isEnv("dev")) {
+        if (env_1.default.isNodeEnv("dev")) {
             const module = await Promise.resolve(`${(0, node_url_1.pathToFileURL)(absPath).href}`).then(s => __importStar(require(s)));
             rawData = module.default || module;
         }

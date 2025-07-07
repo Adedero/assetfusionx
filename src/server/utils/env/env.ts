@@ -11,7 +11,7 @@ export interface SetEnvOptions {
   env?: string;
 }
 
-type NodeEnv = "dev" | "development" | "test" | "prod" | "producion";
+type NodeEnv = "dev" | "development" | "test" | "prod" | "production";
 
 export class Env<T extends ZodTypeAny = ZodTypeAny> {
   private schema?: T;
@@ -40,7 +40,7 @@ export class Env<T extends ZodTypeAny = ZodTypeAny> {
     }
   }
 
-  isEnv(value: NodeEnv) {
+  isNodeEnv(value: NodeEnv) {
     if (value === "dev" || value === "development") {
       return (
         !this.getSafe("NODE_ENV") ||
@@ -162,21 +162,3 @@ export class Env<T extends ZodTypeAny = ZodTypeAny> {
     }
   }
 }
-
-/* 
-create an Env class
-it should be called like this:
-const env = new Env(optionalZodSchema, options)
-options has the following property
-createExampleEnv default false;
-
-if createExampleEnv  is true, a .env.example file will be created only in dev mode. 
-//Note, if default values are defined in the zod schema, this should initlaize .env.example with default values
-
-env.get("SOME_ENV_VALUE", "optional default value") => If zod schema is passed in, it should be typesafe. else, be string throws error is no env
-env.getSafe("SOME_VALUE", optional default) returns undefined if no env or default if it's provided
-env.set("SOME_ENV", "Value", options { env: if provided, this is the file the new variable will be added to, only in development.so Env class should have an isDev state..just my thoughts}) => 
-env.has("ENV_VAR")
-env.getAll =>
-env.getSchema
-*/

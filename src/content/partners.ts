@@ -27,4 +27,4 @@ export default [
     name: "AlphaSense",
     image: "/img/partners/alphasense.png"
   }
-]
+];

@@ -143,7 +143,7 @@ export default {
     "Competitive salary + equity package",
     "Comprehensive health, dental & vision insurance",
     "Unlimited PTO policy",
-    "$5,000 annual learning & development budget",
+    "$5,000 annual learning & development budget"
   ],
 
   perksList_2: [

@@ -60,10 +60,12 @@ export default function mainRouter() {
     const route = req.path.replace(/^\/+/, "");
     //if (!route || route.startsWith("about")) return next();
 
-    const basePath = env.isEnv("dev") ? "src/server" : "build";
-    const viewPath = path.resolve(`${basePath}/views/pages/${route}.handlebars`);
+    const basePath = env.isNodeEnv("dev") ? "src/server" : "build";
+    const viewPath = path.resolve(
+      `${basePath}/views/pages/${route}.handlebars`
+    );
     const dataPath = path.resolve(
-      `${basePath.replace("/server", "")}/content/pages/${route}.${env.isEnv("dev") ? "ts" : "js"}`
+      `${basePath.replace("/server", "")}/content/pages/${route}.${env.isNodeEnv("dev") ? "ts" : "js"}`
     );
 
     if (!cache.fileExistsCached(viewPath)) {

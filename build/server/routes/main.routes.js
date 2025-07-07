@@ -58,9 +58,9 @@ function mainRouter() {
     router.get("/{*all}", async (req, res, next) => {
         const route = req.path.replace(/^\/+/, "");
         //if (!route || route.startsWith("about")) return next();
-        const basePath = env_1.default.isEnv("dev") ? "src/server" : "build";
+        const basePath = env_1.default.isNodeEnv("dev") ? "src/server" : "build";
         const viewPath = node_path_1.default.resolve(`${basePath}/views/pages/${route}.handlebars`);
-        const dataPath = node_path_1.default.resolve(`${basePath.replace("/server", "")}/content/pages/${route}.${env_1.default.isEnv("dev") ? "ts" : "js"}`);
+        const dataPath = node_path_1.default.resolve(`${basePath.replace("/server", "")}/content/pages/${route}.${env_1.default.isNodeEnv("dev") ? "ts" : "js"}`);
         if (!cache.fileExistsCached(viewPath)) {
             return next();
         }
