@@ -9,5 +9,5 @@ const envSchema = zod_1.z.object({
     PORT: zod_1.z.coerce.number().default(54321)
 });
 // Create typed environment instance
-const env = new env_1.Env(envSchema, { createExampleEnv: true });
+const env = new env_1.Env(envSchema, { createExampleEnv: process.env.NODE_ENV !== "production" });
 exports.default = env;

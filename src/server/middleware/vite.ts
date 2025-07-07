@@ -7,7 +7,7 @@ import type { Express } from "express";
 export default async function viteServer(app: Express) {
   const base = env.getSafe("BASE", "/");
 
-  if (env.isNodeEnv("production")) {
+  if (env.isNodeEnv("development")) {
     const { createServer } = await import("vite");
 
     const viteServer = await createServer({

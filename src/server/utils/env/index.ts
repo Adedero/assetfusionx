@@ -12,5 +12,5 @@ export type EnvSchema = typeof envSchema;
 export type EnvType = z.infer<typeof envSchema>;
 
 // Create typed environment instance
-const env = new Env(envSchema, { createExampleEnv: true });
+const env = new Env(envSchema, { createExampleEnv: process.env.NODE_ENV !== "production" });
 export default env;

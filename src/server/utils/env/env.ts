@@ -42,13 +42,22 @@ export class Env<T extends ZodTypeAny = ZodTypeAny> {
 
   isNodeEnv(value: NodeEnv) {
     if (value === "dev" || value === "development") {
+      console.log("Testing", process.env.NODE_ENV, value);
       return (
         process.env.NODE_ENV === undefined ||
-        process.env.NODE_ENV === value
+        process.env.NODE_ENV === "dev" ||
+        process.env.NODE_ENV === "development"
       );
-    } else {
-      return process.env.NODE_ENV === value;
+    } 
+
+    if (value === "prod" || value === "production") {
+      return (
+        process.env.NODE_ENV === "prod" ||
+        process.env.NODE_ENV === "production"
+      )
     }
+
+    return process.env.NODE_ENV === value;
   }
 
   get<K extends keyof z.infer<T>>(key: K): z.infer<T>[K];
