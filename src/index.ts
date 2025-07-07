@@ -5,7 +5,6 @@ import { engine } from "express-handlebars";
 import mainRouter from "./server/routes/main.routes";
 import env from "./server/utils/env";
 import logger from "./server/utils/logger";
-import httpLogger from "./server/middleware/http-logger";
 import viteServer from "./server/middleware/vite";
 
 const app: Express = express();
@@ -19,7 +18,6 @@ async function main() {
   app.engine("handlebars", engine());
   app.set("view engine", "handlebars");
   app.set("views", path.resolve("src/server/views"));
-  app.use(httpLogger);
 
   /**
    * Routes for static pages
@@ -36,11 +34,13 @@ async function main() {
    */
   server.listen(PORT, () => {
     let location: string = "";
+
     if (env.isNodeEnv("dev")) {
       location = `http://localhost:${PORT}`;
     } else {
       location = `port ${PORT}`;
     }
+
     logger.info(`Server running on ${location}`);
   });
 

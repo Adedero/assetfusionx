@@ -30,13 +30,11 @@ class Env {
     }
     isNodeEnv(value) {
         if (value === "dev" || value === "development") {
-            return (!this.getSafe("NODE_ENV") ||
-                this.getSafe("NODE_ENV") === value ||
-                this.getSafe("NODE_ENV") !== "production" ||
-                this.getSafe("NODE_ENV") !== "test");
+            return (process.env.NODE_ENV === undefined ||
+                process.env.NODE_ENV === value);
         }
         else {
-            return this.getSafe("NODE_ENV") === value;
+            return process.env.NODE_ENV === value;
         }
     }
     get(key, fallback) {

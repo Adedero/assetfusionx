@@ -10,7 +10,6 @@ const express_handlebars_1 = require("express-handlebars");
 const main_routes_1 = __importDefault(require("./server/routes/main.routes"));
 const env_1 = __importDefault(require("./server/utils/env"));
 const logger_1 = __importDefault(require("./server/utils/logger"));
-const http_logger_1 = __importDefault(require("./server/middleware/http-logger"));
 const vite_1 = __importDefault(require("./server/middleware/vite"));
 const app = (0, express_1.default)();
 const server = node_http_1.default.createServer(app);
@@ -22,7 +21,6 @@ async function main() {
     app.engine("handlebars", (0, express_handlebars_1.engine)());
     app.set("view engine", "handlebars");
     app.set("views", node_path_1.default.resolve("src/server/views"));
-    app.use(http_logger_1.default);
     /**
      * Routes for static pages
      */
