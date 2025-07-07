@@ -9,6 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
   mainHeader();
   footer();
   partnerListMarquee();
-  new MegaMenu(document.querySelector("#mega-menu"), { items: routes});
+  new MegaMenu(document.querySelector("#mega-menu"), { items: routes });
   new Typewriter("#typewriter");
 });

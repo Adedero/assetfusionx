@@ -2,95 +2,46 @@
 
 const investmentOptions = [
   {
-    icon: "lucide:building",
-    name: "Lorem Ipsum",
+    icon: "lucide:trending-up",
+    name: "Stocks",
     description:
-      "Lorem ipsum dolor sit amet consequetur. Ipsis contra sum hec dies.",
-    details: [
-      {
-        image: "",
-        title: "",
-        content: ""
-      }
-    ]
+      "Own a piece of leading companies and benefit from growth and dividends."
+  },
+  {
+    icon: "lucide:bitcoin",
+    name: "Cryptocurrencies",
+    description:
+      "Dive into the future of finance with decentralized digital assets."
+  },
+  {
+    icon: "lucide:dollar-sign",
+    name: "Forex",
+    description:
+      "Trade global currencies and capitalize on exchange rate movements."
   },
   {
     icon: "lucide:building",
-    name: "Lorem Ipsum",
+    name: "REITs",
     description:
-      "Lorem ipsum dolor sit amet consequetur. Ipsis contra sum hec dies.",
-    details: [
-      {
-        image: "",
-        title: "",
-        content: ""
-      }
-    ]
+      "Invest in real estate portfolios without direct property ownership."
   },
   {
-    icon: "lucide:building",
-    name: "Lorem Ipsum",
+    icon: "lucide:factory",
+    name: "Commodities",
     description:
-      "Lorem ipsum dolor sit amet consequetur. Ipsis contra sum hec dies.",
-    details: [
-      {
-        image: "",
-        title: "",
-        content: ""
-      }
-    ]
+      "Hedge against inflation and invest in essential raw materials like gold and oil."
   },
   {
-    icon: "lucide:building",
-    name: "Lorem Ipsum",
+    icon: "lucide:scale",
+    name: "Bonds",
     description:
-      "Lorem ipsum dolor sit amet consequetur. Ipsis contra sum hec dies.",
-    details: [
-      {
-        image: "",
-        title: "",
-        content: ""
-      }
-    ]
+      "Secure stable returns and preserve capital with government and corporate debt."
   },
   {
-    icon: "lucide:building",
-    name: "Lorem Ipsum",
+    icon: "lucide:git-fork",
+    name: "Derivatives",
     description:
-      "Lorem ipsum dolor sit amet consequetur. Ipsis contra sum hec dies.",
-    details: [
-      {
-        image: "",
-        title: "",
-        content: ""
-      }
-    ]
-  },
-  {
-    icon: "lucide:building",
-    name: "Lorem Ipsum",
-    description:
-      "Lorem ipsum dolor sit amet consequetur. Ipsis contra sum hec dies.",
-    details: [
-      {
-        image: "",
-        title: "",
-        content: ""
-      }
-    ]
-  },
-  {
-    icon: "lucide:building",
-    name: "Lorem Ipsum",
-    description:
-      "Lorem ipsum dolor sit amet consequetur. Ipsis contra sum hec dies.",
-    details: [
-      {
-        image: "",
-        title: "",
-        content: ""
-      }
-    ]
+      "Utilize advanced contracts for hedging or amplifying market exposure."
   }
 ];
 

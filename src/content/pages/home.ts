@@ -1,4 +1,5 @@
 import app from "../app";
+import partners from "../partners";
 
 export default {
   hero: {
@@ -6,36 +7,8 @@ export default {
     title: "Grow your wealth with expert-managed investments.",
     description: `${app.name} lets you pick from curated investment opportunities. You choose where to put your money — we do the work, and you enjoy the returns.`
   },
-  partners: [
-    {
-      name: "Avaloq",
-      image: "/img/partners/avaloq.svg"
-    },
-    {
-      name: "Metaco",
-      image: "/img/partners/metaco.png"
-    },
-    {
-      name: "Sygnum",
-      image: "/img/partners/sygnum.png"
-    },
-    {
-      name: "OTransfer",
-      image: "/img/partners/otransfer.png"
-    },
-    {
-      name: "Monarch",
-      image: "/img/partners/monarch.png"
-    },
-    {
-      name: "Holded",
-      image: "/img/partners/holded.png"
-    },
-    {
-      name: "AlphaSense",
-      image: "/img/partners/alphasense.png"
-    }
-  ],
+  partners,
+  
   whyChooseUs: {
     title: `Why choose ${app.name}?`,
     content: `${app.name} gives you control over where your money goes — and then takes care of everything else. No market stress, no trading screens, just solid results.`,

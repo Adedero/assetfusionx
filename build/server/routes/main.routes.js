@@ -9,7 +9,6 @@ const home_1 = __importDefault(require("#src/content/pages/home"));
 const app_1 = __importDefault(require("#src/content/app"));
 const investment_options_1 = __importDefault(require("#src/content/investment-options"));
 const node_path_1 = __importDefault(require("node:path"));
-const json_to_html_1 = __importDefault(require("#src/server/utils/helpers/json-to-html"));
 const zod_1 = require("zod");
 const logger_1 = __importDefault(require("../utils/logger"));
 const env_1 = __importDefault(require("../utils/env"));
@@ -19,13 +18,15 @@ function mainRouter() {
     const router = (0, express_1.Router)();
     const cache = new route_import_cache_1.default();
     router.get("/", (req, res) => {
-        res.render("home", {
+        res.render("pages/home", {
             app: app_1.default,
             data: home_1.default,
             investmentOptions: investment_options_1.default
         });
     });
-    //Logging
+    /**
+     * Logger route
+     */
     router.post("/logger", (req, res) => {
         const Schema = zod_1.z.object({
             level: zod_1.z.enum(["debug", "error", "info", "warn"]),
@@ -51,54 +52,29 @@ function mainRouter() {
             message: "Message logged."
         });
     });
-    //other routes
+    /**
+     * Main routes
+     */
     router.get("/{*all}", async (req, res, next) => {
         const route = req.path.replace(/^\/+/, "");
-        if (!route || !route.startsWith("investments"))
-            return next();
+        //if (!route || route.startsWith("about")) return next();
         const basePath = env_1.default.isEnv("dev") ? "src/server" : "build";
-        const viewPath = node_path_1.default.resolve(`${basePath}/views/${route}.handlebars`);
+        const viewPath = node_path_1.default.resolve(`${basePath}/views/pages/${route}.handlebars`);
         const dataPath = node_path_1.default.resolve(`${basePath.replace("/server", "")}/content/pages/${route}.${env_1.default.isEnv("dev") ? "ts" : "js"}`);
         if (!cache.fileExistsCached(viewPath)) {
             return next();
         }
-        let data;
+        let data = {};
         if (cache.fileExistsCached(dataPath)) {
             try {
-                data = await cache.importCachedModule(dataPath);
+                data =
+                    await cache.importCachedModule(dataPath);
             }
             catch (error) {
                 next(new custom_error_1.default(`Failed to import page data for ${route}:`, error));
             }
         }
-        res.render(route, { app: app_1.default, data });
-    });
-    //other routes
-    router.get("/{*all}", async (req, res, next) => {
-        const route = req.path.replace(/^\/+/, "");
-        if (!route)
-            return next();
-        const basePath = env_1.default.isEnv("dev") ? "src/server" : "build";
-        const viewPath = node_path_1.default.resolve(`${basePath}/views/${route}.handlebars`);
-        const dataPath = node_path_1.default.resolve(`${basePath.replace("/server", "")}/content/pages/${route}.${env_1.default.isEnv("dev") ? "ts" : "js"}`);
-        if (!cache.fileExistsCached(viewPath)) {
-            return next();
-        }
-        let data = null;
-        if (cache.fileExistsCached(dataPath)) {
-            try {
-                const rawData = await cache.importCachedModule(dataPath);
-                data = (0, json_to_html_1.default)(rawData);
-            }
-            catch (err) {
-                console.error(`Failed to import page data for ${route}:`, err);
-            }
-        }
-        res.render(route, {
-            app: app_1.default,
-            partners: home_1.default.partners,
-            data
-        });
+        res.render(`pages/${route}`, { app: app_1.default, data });
     });
     return router;
 }

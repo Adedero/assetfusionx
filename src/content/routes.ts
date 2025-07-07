@@ -54,10 +54,6 @@ const routes = [
       {
         label: "Derivatives",
         to: "/investments/derivatives"
-      },
-      {
-        label: "Asset Bundles",
-        to: "/investments/asset-bundles"
       }
     ]
   },

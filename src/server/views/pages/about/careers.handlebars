@@ -1,0 +1,101 @@
+<main>
+  <div class="grid *:[grid-column:1/2] *:[grid-row:1/2]">
+    <div class="flex flex-col items-center justify-center z-10">
+      <div class="max-w-[32rem] text-center p-4 bg-slate-700/30 border border-white/30 backdrop-blur-[5px] rounded-xl">
+        <h1 class="text-6xl font-medium">Careers</h1>
+
+        <div class="mt-5">
+          <p>
+            There is a place for everyone of value at {{app.name}}.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="h-96">
+      <img src="/img/pages/about/careers.jpg" class="h-full w-full object-cover" />
+    </div>
+  </div>
+
+  <div class="py-12 flex items-center justify-center">
+    <div class="max-w-[30rem] bg-amber-400/10 border border-amber-400/50 rounded-lg p-4 text-amber-400">
+      <div class="flex items-center gap-2">
+        <iconify-icon icon="lucide:triangle-alert"></iconify-icon>
+        <p class="font-semibold">Important</p>
+      </div>
+
+      <div class="mt-2 text-sm">
+        <p>
+          Please, be advised that {{app.name}} is not taking any applications at this time. Do check back later, as this page is regularly updated. Thank you.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="space-y-12 max-w-6xl mx-auto pt-8 pb-16 px-4 sm:px-6 lg:px-8">
+      <div class="text-center space-y-8">
+        <h1 class="text-2xl font-bold sm:text-6xl">Join Our Team</h1>
+        <p class="text-slate-300 max-w-3xl mx-auto leading-relaxed">Help us revolutionize investing at {{ app.name }}. We're building the future of wealth management and looking for passionate individuals to join our mission.</p>
+        <div class="w-24 h-1 bg-blue-500 mx-auto rounded-full"></div>
+      </div>
+      <div class="bg-slate-800 rounded-2xl p-8">
+        <h2 class="text-2xl font-bold text-center mb-8">Why Work at {{ app.name }}?</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {{#each data.whyWork}}
+            <div class="bg-gradient-to-b from-primary-500/10 border border-white/20  p-6 rounded-xl shadow-sm">
+              <iconify-icon icon="{{ this.icon }}" class="text-4xl {{ this.color }} mb-4"></iconify-icon>
+              <h3 class="text-xl font-semibold mb-3">{{ this.title }}</h3>
+              <p class="text-slate-300">{{ this.description }}</p>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+      <div class="space-y-8">
+        <h2 class="text-2xl font-bold text-tertiary-500 text-center">Open Positions</h2>
+        <div class="space-y-4">
+
+          {{#each data.openPositions}}
+            <div class="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+              <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                <div class="space-y-2">
+                  <h3 class="text-lg font-semibold text-slate-900">{{ this.title }}</h3>
+                  <div class="flex flex-wrap gap-2">
+                    {{#each this.tags}}
+                      <span class="px-3 py-1 {{ this.bg}} {{ this.text }} rounded-full text-xs">{{ this.label }}</span>
+                    {{/each}}
+                  </div>
+                  <p class="text-slate-600">{{ this.description }}</p>
+                </div>
+                <a href="{{ this.href }}" class="shrink-0 mt-4 md:mt-0 bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors inline-block text-center">Apply Now</a>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+
+      <div class="bg-slate-900 rounded-2xl p-8 text-white">
+        <h2 class="text-3xl font-bold text-center mb-8">Benefits &amp; Perks</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <ul class="space-y-3">
+            {{#each data.perksList_1}}
+              <li class="flex items-center gap-x-3">
+                <iconify-icon icon="lucide:check-circle" class="text-green-400"></iconify-icon>{{this}}</li>
+            {{/each}}
+          </ul>
+
+          <ul class="space-y-3">
+            {{#each data.perksList_2}}
+              <li class="flex items-center gap-x-3">
+                <iconify-icon icon="lucide:check-circle" class="text-green-400"></iconify-icon>{{this}}</li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    {{> main/cta-banner}}
+  </div>
+</main>
