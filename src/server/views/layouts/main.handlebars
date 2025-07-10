@@ -43,6 +43,31 @@
     <footer>
       {{> main/footer}}
     </footer>
+    <script>
+      const initialLoader = document.querySelector("#loader-initial");
+      const routerLoader = document.querySelector("#router-loader");
+      const hasSeenLoader = sessionStorage.getItem("seen-loader");
+
+      window.onbeforeunload = function() {
+        routerLoader.style.display = "flex";
+      }
+
+      document.addEventListener("readystatechange", function() {
+        if (this.readyState !== "complete") {
+          if (hasSeenLoader) {
+            initialLoader.style.display = "none";
+            routerLoader.style.display = "flex";
+          } else {
+            initialLoader.style.display = "flex"
+            routerLoader.style.display = "none"
+          }
+          
+        } else {
+          initialLoader.style.display = "none";
+          routerLoader.style.display = "none";
+        }
+      })
+    </script> 
     <script src="/js/main.js" type="module"></script>
   </body>
 </html>
