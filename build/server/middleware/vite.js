@@ -49,7 +49,7 @@ async function viteServer(app) {
             configFile: node_path_1.default.resolve("vite.config.mts"),
             server: { middlewareMode: true },
             root: node_path_1.default.resolve("src/app"),
-            base
+            base,
         });
         app.use(viteServer.middlewares);
     }

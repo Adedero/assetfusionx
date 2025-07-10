@@ -14,7 +14,7 @@ export default async function viteServer(app: Express) {
       configFile: path.resolve("vite.config.mts"),
       server: { middlewareMode: true },
       root: path.resolve("src/app"),
-      base
+      base,
     });
 
     app.use(viteServer.middlewares);

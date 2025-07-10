@@ -20,7 +20,7 @@ export class Env<T extends ZodTypeAny = ZodTypeAny> {
   private createExampleEnv: boolean;
 
   constructor(schema?: T, options: EnvOptions = {}) {
-    dotenv.config();
+    dotenv.config({ quiet: true });
     this.schema = schema;
     this.isDev = process.env.NODE_ENV !== "production";
     this.createExampleEnv = options.createExampleEnv ?? false;
@@ -42,7 +42,6 @@ export class Env<T extends ZodTypeAny = ZodTypeAny> {
 
   isNodeEnv(value: NodeEnv) {
     if (value === "dev" || value === "development") {
-      console.log("Testing", process.env.NODE_ENV, value);
       return (
         process.env.NODE_ENV === undefined ||
         process.env.NODE_ENV === "dev" ||

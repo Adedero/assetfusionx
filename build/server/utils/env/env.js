@@ -13,7 +13,7 @@ class Env {
     isDev;
     createExampleEnv;
     constructor(schema, options = {}) {
-        dotenv_1.default.config();
+        dotenv_1.default.config({ quiet: true });
         this.schema = schema;
         this.isDev = process.env.NODE_ENV !== "production";
         this.createExampleEnv = options.createExampleEnv ?? false;
@@ -30,7 +30,6 @@ class Env {
     }
     isNodeEnv(value) {
         if (value === "dev" || value === "development") {
-            console.log("Testing", process.env.NODE_ENV, value);
             return (process.env.NODE_ENV === undefined ||
                 process.env.NODE_ENV === "dev" ||
                 process.env.NODE_ENV === "development");
